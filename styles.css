@@ -1,0 +1,54 @@
+
+.navbar-nav {
+	float:none !important;
+	margin:0 auto !important;
+	display: block !important;
+	text-align: center !important;
+	width:100% !important;
+}
+
+.navbar-nav > li {
+	display: inline-block;
+	float:none;
+}
+	
+.navbar-collapse.collapse {
+  display: block!important;
+}
+
+.navbar-nav>li, .navbar-nav {
+  flex-direction: row !important;
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.name {
+	font-size: 40pt;
+}
+
+.center {
+    float:none;
+    margin:0 auto;
+    display: block;
+    text-align: center;
+	
+}
+
+.divider {
+	width:100px;
+	height:7px;
+	background-color:#333;
+	margin-top:20px;
+}
+
+.descriptor {
+	padding:20px;
+}
+
+.section {
+	padding:20px;
+}
+
+.section-header {
+	font-size: 25pt;
+}
