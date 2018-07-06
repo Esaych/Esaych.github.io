@@ -50,5 +50,11 @@
 }
 
 .section-header {
-	font-size: 25pt;
+	font-size: 20pt;
+	padding-top:0px;
+	padding-bottom:15px;
+}
+
+.headshot {
+	padding:20px;
 }
