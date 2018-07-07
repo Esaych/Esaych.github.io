@@ -58,3 +58,14 @@
 .headshot {
 	padding:20px;
 }
+
+.header {
+	font-size:15pt;
+	padding:20px;
+}
+
+table tr td {
+	text-align: left;
+	vertical-align: top;
+	padding: 0px 10px;
+}
