@@ -69,3 +69,7 @@ table tr td {
 	vertical-align: top;
 	padding: 0px 10px;
 }
+
+.left {
+	text-align: left
+}
