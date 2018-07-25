@@ -33,7 +33,8 @@
 			if (new_w > new_h)
 				new_scale = "scale(" + new_h + ")";
 			
-			$("body").css("transform", new_scale);
+			$("#wrapper").css("transform", new_scale);
+			$("#navbar").css("transform", new_scale);
 		}
 	
 		$(window).on('resize', function() {
@@ -43,13 +44,40 @@
 	</script>
 	
   </head>
-  <body class="body">
+  <body class="background">
+	
+	<!-- navbar area -->
+	<div id="navbar" class="navbar-div">
+	  <nav class="navbar navbar-expand-lg">
+		<div class="navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">HOME
+			  <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="resume.htm">RESUME</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="code.htm">CODE</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="art.htm">ART</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="contact.htm">CONTACT</a>
+			</li>
+		  </ul>
+		</div>
+	  </nav>
+	</div>
+	
+    <div id="wrapper" class="body">
+	<!-- purple sidebar graphic -->
+	<div style="width:32%;">
 	<script>
 		resizeToFit();
 	</script>
-  
-	<!-- purple sidebar graphic -->
-	<div style="width:32%;">
 		<svg viewBox="0 0 32 150" width="100%" height="100%">
 			<filter id="dropshadow" height="130%">
 			  <feGaussianBlur in="SourceAlpha" stdDeviation="0.5"/> <!-- stdDeviation is how much to blur -->
@@ -79,31 +107,6 @@
 			Digital Artist
 		</div>
 	</div>
-	<!-- navbar area -->
-	<div class="navbar-div">
-	  <nav class="navbar navbar-expand-lg">
-		<div class="navbar-collapse" id="navbarSupportedContent">
-		  <ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-			  <a class="nav-link" href="#">HOME
-			  <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="resume.htm">RESUME</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="code.htm">CODE</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="art.htm">ART</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="contact.htm">CONTACT</a>
-			</li>
-		  </ul>
-		</div>
-	  </nav>
-	</div>
 	
 	<!-- left sidebar content -->
 	<div class="margin-content-bar" style="margin-top:280px;">
@@ -122,7 +125,7 @@
 	</div>
 	
 	<!-- main (right) sidebar content -->
-	<div class="main-content underlay" style="margin-top:15%; margin-right:-20px;">
+	<div class="main-content underlay expand-div" style="margin-top:15%;">
 		<div id="hello" class="carousel slide" data-ride="carousel">
 
 		  <!-- Indicators -->
@@ -134,7 +137,7 @@
 
 		  <!-- The slideshow -->
 		  <div class="carousel-inner">
-			<div id="resume-graphic" class="carousel-item active">
+			<div id="resume-graphic" class="carousel-item active" >
 			  <img src="images/portrait.jpg" class="carousel-resize-image" alt="Portrait">
 			</div>
 			<div id="code-graphic" class="carousel-item">
@@ -148,7 +151,7 @@
 		</div>
 	</div>
 	<!-- secondary div which contains clickable elements -->
-	<div class="main-content" style="margin-top:30%; margin-right:-20px;">
+	<div class="main-content expand-div" style="margin-top:30%;">
 
 	  <!-- Left and right controls -->
 	  <a id="prev-selector" class="carousel-control-prev" href="#hello" data-slide="prev">
@@ -157,6 +160,7 @@
 	  <a class="carousel-control-next" href="#hello" data-slide="next">
 		<span class="carousel-control-next-icon"></span>
 	  </a>
+	</div>
 	</div>
 	
 	<!-- javascript necessary for carousel -->
