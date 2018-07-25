@@ -37,22 +37,15 @@
 				new_scale = "scale(" + new_h + ")";
 			
 			$("body").css("transform", new_scale);
-			
-			new_h = h/w*80;
-			if (new_h < 35) {
-				new_h = 35;
-			}
-			var new_h_val = new_h + "%";
-			$("#resume-frame").css("height", new_h_val);
 		}
 		
 		var resizeResumeToFit = function() {
 			var w = $(this).width(); //this = window
 			var h = $(this).height(); //this = window
 			
-			new_h = h/w*80;
-			if (new_h < 35) {
-				new_h = 35;
+			var new_h = h/w*55;
+			if (new_h < 25) {
+				new_h = 25;
 			}
 			var new_h_val = new_h + "%";
 			$("#resume-frame").css("height", new_h_val);
