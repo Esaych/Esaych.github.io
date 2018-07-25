@@ -1,3 +1,42 @@
+.body {
+	margin:0px; 
+	overflow: hidden; 
+	width:1300px; 
+	background-color:#323F51; 
+	transform-origin:0 0;
+}
+.name-div {
+	width:100%; 
+	position:absolute; 
+	top:0;
+}
+.name {
+	padding:15px; 
+	padding-top: 5px; 
+	padding-bottom:0px; 
+	font-family: 'Roboto Condensed'; 
+	font-weight: bolder; 
+	font-size: 32px;
+}
+.title {
+	padding:15px; 
+	padding-top:5px; 
+	font-family: 'Roboto Condensed'; 
+	font-size: 17px; 
+	color: #777;
+}
+.navbar-div {
+	position:absolute; 
+	top:0; 
+	right:0;
+}
+.margin-content-bar {
+	position:absolute; 
+	top:0; 
+	left:0; 
+	width:320px; 
+	margin-top:280px;
+}
 .nav-link {
 	color: #FFF;
 	font-family: 'Roboto Condensed';
@@ -5,4 +44,19 @@
 }
 li.active {
 	border-bottom: 2px solid white;
+}
+.main-content {
+	position:absolute; 
+	top:0; 
+	right:0; 
+	width:80%; 
+	margin-top:15%;
+}
+.underlay {
+	z-index:-1; 
+}
+
+.carousel-resize-image {
+	width:75%; 
+	margin-left:13%;
 }

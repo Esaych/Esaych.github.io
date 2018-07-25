@@ -2,10 +2,16 @@
 <html lang="en">
   <head>
     <title>Sam Holmberg</title>
+	
+	<!-- custom stylesheet -->
     <link rel="stylesheet" href="style.css" />
+	
+	<!-- google fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	
+    <!-- bootstrap stylesheets -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -13,37 +19,43 @@
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
   </head>
-  <body style="margin:0px; overflow: hidden; width:1300px; background-color:#323F51; transform-origin:0 0;">
+  <body class="body">
+  
+	<!-- purple sidebar graphic -->
 	<div style="width:30%;">
-	<svg viewBox="0 0 30 100" width="100%" height="100%">
-		<filter id="dropshadow" height="130%">
-		  <feGaussianBlur in="SourceAlpha" stdDeviation="0.5"/> <!-- stdDeviation is how much to blur -->
-		  <feOffset dx="1" dy="0" result="offsetblur"/> <!-- how much to offset -->
-		  <feComponentTransfer>
-			<feFuncA type="linear" slope="0.3"/> <!-- slope is the opacity of the shadow -->
-		  </feComponentTransfer>
-		  <feMerge> 
-			<feMergeNode/> <!-- this contains the offset blurred image -->
-			<feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
-		  </feMerge>
-		</filter>
-		
-		<polygon points="0,0 30,0 10,100 0,100" style="fill:#42345F; filter:url(#dropshadow);" />
-		<polygon points="0,0 30,0 28.4,8 0,10" style="fill:#CDCBAA;" />
-	</svg>
+		<svg viewBox="0 0 30 100" width="100%" height="100%">
+			<filter id="dropshadow" height="130%">
+			  <feGaussianBlur in="SourceAlpha" stdDeviation="0.5"/> <!-- stdDeviation is how much to blur -->
+			  <feOffset dx="1" dy="0" result="offsetblur"/> <!-- how much to offset -->
+			  <feComponentTransfer>
+				<feFuncA type="linear" slope="0.3"/> <!-- slope is the opacity of the shadow -->
+			  </feComponentTransfer>
+			  <feMerge> 
+				<feMergeNode/> <!-- this contains the offset blurred image -->
+				<feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+			  </feMerge>
+			</filter>
+			
+			<polygon points="0,0 30,0 10,100 0,100" style="fill:#42345F; filter:url(#dropshadow);" />
+			<polygon points="0,0 30,0 28.4,8 0,10" style="fill:#CDCBAA;" />
+		</svg>
 	</div>
-	<div style="width:100%; position:absolute; top:0">
-		<div style="padding:15px; padding-top: 5px; padding-bottom:0px; font-family: 'Roboto Condensed'; font-weight: bolder; font-size: 32px;">
-			SAMUEL HOLMBERG
+	
+	<!-- name area -->
+	<div class="name-div">
+		<div class="name">
+			SAM HOLMBERG
 		</div>
-		<div style="padding:15px; padding-top:5px; font-family: 'Roboto Condensed'; font-size: 17px; color: #777;">
+		<div class="title">
 			Software Developer
 			<br />
 			Digital Artist
 		</div>
 	</div>
-	<div style="position:absolute; top:0; right:0;">
+	<!-- navbar area -->
+	<div class="navbar-div">
 	  <nav class="navbar navbar-expand-lg">
 		<div class="navbar-collapse" id="navbarSupportedContent">
 		  <ul class="navbar-nav mr-auto">
@@ -68,7 +80,8 @@
 	  </nav>
 	</div>
 	
-	<div style="position:absolute; top:0; left:0; width:320px; margin-top:280px;">
+	<!-- left sidebar content -->
+	<div class="margin-content-bar">
 		<div id="margin-info" style="padding:15px; padding-top:5px; font-family: 'Roboto'; text-align: center; color: #FFF;">
 			<div id="header" style="font-size: 27px;">
 				WHAT I LOVE TO DO
@@ -83,7 +96,8 @@
 		</div>
 	</div>
 	
-	<div style="position:absolute; top:0; right:0; z-index:-1; width:80%; margin-top:15%;">
+	<!-- main (right) sidebar content -->
+	<div class="main-content underlay">
 		<div id="hello" class="carousel slide" data-ride="carousel">
 
 		  <!-- Indicators -->
@@ -96,19 +110,20 @@
 		  <!-- The slideshow -->
 		  <div class="carousel-inner">
 			<div id="resume-graphic" class="carousel-item active">
-			  <img src="images/portrait.jpg" style="width:75%; margin-left:13%;" alt="Portrait">
+			  <img src="images/portrait.jpg" class="carousel-resize-image" alt="Portrait">
 			</div>
 			<div id="code-graphic" class="carousel-item">
-			  <img src="images/tanay.jpg" style="width:75%; margin-left:13%;" alt="Tanay">
+			  <img src="images/tanay.jpg" class="carousel-resize-image" alt="Tanay">
 			</div>
 			<div id="art-graphic" class="carousel-item">
-			  <img src="images/lucas.jpg" style="width:75%; margin-left:13%;" alt="Lucas">
+			  <img src="images/lucas.jpg" class="carousel-resize-image" alt="Lucas">
 			</div>
 		  </div>
 
 		</div>
 	</div>
-	<div style="position:absolute; top:0; right:0; z-index:1; width:80%; margin-top:30%;">
+	<!-- secondary div which contains clickable elements -->
+	<div class="main-content" style="margin-top:30%;">
 
 	  <!-- Left and right controls -->
 	  <a id="prev-selector" class="carousel-control-prev" href="#hello" data-slide="prev">
@@ -118,6 +133,8 @@
 		<span class="carousel-control-next-icon"></span>
 	  </a>
 	</div>
+	
+	<!-- javascript necessary for carousel -->
 	<script>
 		$(document).ready(function(){
 			// Activate Carousel with a specified interval
@@ -161,6 +178,6 @@
 			var new_w_val = "scale(" + new_w + ")";
 			$("body").css("transform", new_w_val);
 		}
-</script>
+	</script>
   </body>
 </html>
