@@ -61,3 +61,15 @@ li.active {
 	width:75%; 
 	margin-left:13%;
 }
+
+
+@media screen and (max-width: 991px) {
+	iframe.expand-div {
+		margin-left: 150px;
+	}
+}
+@media screen and (min-width: 991px) {
+	iframe.expand-div {
+		margin-left: 200px;
+	}
+}

@@ -25,9 +25,15 @@
 		
 		var resizeToFit = function() {
 			var w = $(this).width(); //this = window
+			var h = $(this).height(); //this = window
 			var new_w = w/1300;
-			var new_w_val = "scale(" + new_w + ")";
-			$("body").css("transform", new_w_val);
+			var new_h = h/600;
+			var new_scale = "scale(" + new_w + ")";
+			
+			if (new_w > new_h)
+				new_scale = "scale(" + new_h + ")";
+			
+			$("body").css("transform", new_scale);
 		}
 	
 		$(window).on('resize', function() {
