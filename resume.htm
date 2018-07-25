@@ -2,54 +2,117 @@
 <html lang="en">
   <head>
     <title>Resume - Sam Holmberg</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    
+	<!-- custom stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+	
+	<!-- google fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	
+    <!-- bootstrap stylesheets -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-	<link rel="stylesheet" href="open-iconic/font/css/open-iconic-bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+	<!-- icons -->
+	<link rel="stylesheet" href="open-iconic/font/css/open-iconic-bootstrap.min.css">
+	
   </head>
-  <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="center navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.htm">Home</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Resume
-          <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="code.htm">Code Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="art.htm">Art Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.htm">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="center headshot">
-  <img style="height: 100px;
-    border-radius: 90px;
-    padding: 1px 3px 0px -1px;
-	margin-right:20px;" src="images/headshot.jpg">
-
-  </div>
+  <body class="body" >
   
-  <div class="center" style="width:723px;height20px;">
-	<span style="float:right">
-		<a href="Business Resume 2018 - Samuel Holmberg.pdf"><span class="oi oi-document"></span> PDF Download</a>
-	</span>
-  </div>
-  <iframe class="center" style="border:none;margin-top:30px;" src="resume_doc.htm" height="1000" width="760"></iframe>
-  
+	<!-- purple sidebar graphic -->
+	<div style="width:30%;">
+		<svg viewBox="0 0 30 100" width="100%" height="100%">
+			<filter id="dropshadow" height="130%">
+			  <feGaussianBlur in="SourceAlpha" stdDeviation="0.5"/> <!-- stdDeviation is how much to blur -->
+			  <feOffset dx="1" dy="0" result="offsetblur"/> <!-- how much to offset -->
+			  <feComponentTransfer>
+				<feFuncA type="linear" slope="0.3"/> <!-- slope is the opacity of the shadow -->
+			  </feComponentTransfer>
+			  <feMerge> 
+				<feMergeNode/> <!-- this contains the offset blurred image -->
+				<feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+			  </feMerge>
+			</filter>
+			
+			<polygon points="0,0 30,0 10,100 0,100" style="fill:#42345F; filter:url(#dropshadow);" />
+			<polygon points="0,0 30,0 28.4,8 0,10" style="fill:#CDCBAA;" />
+		</svg>
+	</div>
+	
+	<!-- name area -->
+	<div class="name-div">
+		<div class="name">
+			SAM HOLMBERG
+		</div>
+		<div class="title">
+			Software Developer
+			<br />
+			Digital Artist
+		</div>
+	</div>
+	<!-- navbar area -->
+	<div class="navbar-div">
+	  <nav class="navbar navbar-expand-lg">
+		<div class="navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+			  <a class="nav-link" href="index.htm">HOME</a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">RESUME
+			  <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="code.htm">CODE</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="art.htm">ART</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="contact.htm">CONTACT</a>
+			</li>
+		  </ul>
+		</div>
+	  </nav>
+	</div>
+	
+	<!-- left sidebar content -->
+	<div class="margin-content-bar" style="margin-top:200px;">
+		  <img style="height: 150px;
+			border-radius: 90px;
+			margin-left:80px;" src="images/headshot.jpg">
+			
+			<div class="roboto" style="color:#DDD; padding:30px; font-size: 15px; ">
+				<a href="Business Resume 2018 - Samuel Holmberg.pdf" style="font-weight:bolder; color:#67A1C1;"><span class="oi oi-document"></span> PDF Download</a><br /><br />
+				<span class="oi oi-phone"></span> (240) 543-7214<br /><br />
+				<a href="mailto:samuel.d.holmberg@gmail.com" style="color:#DDD;"><span class="oi oi-envelope-open"></span> samuel.d.holmberg@gmail.com</a><br />
+			</div>
+	</div>
+	
+	<!-- main (right) sidebar content -->
+	<div class="main-content" style="margin-top:5%;">
+		<iframe class="center" style="margin-left:200px; margin-top:20px; border:none; overflow:overlay;" src="resume_doc.htm" height="500" width="800"></iframe>
+	</div>
+	<!-- javascript necessary for carousel -->
+	<script>
+		$(document).ready(function(){
+			resizeToFit();
+		});
+		$(window).on('resize', function() {resizeToFit()});
+		
+		var resizeToFit = function() {
+			var w = $(this).width(); //this = window
+			var new_w = w/1300;
+			var new_w_val = "scale(" + new_w + ")";
+			$("body").css("transform", new_w_val);
+		}
+	</script>
   </body>
 </html>
