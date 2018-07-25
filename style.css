@@ -1,0 +1,13 @@
+.nav-link {
+	color: #FFF;
+	font-family: 'Roboto Condensed';
+	font-weight: bold;
+}
+li.active {
+	border-bottom: 2px solid white;
+}
+@media screen and (max-width: 1270px) {
+  #prev-selector {
+    display: none;
+  }
+}
