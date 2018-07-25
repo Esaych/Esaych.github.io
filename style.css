@@ -33,6 +33,7 @@
 }
 .navbar-div {
 	position:absolute; 
+	transform-origin: top right;
 	top:0; 
 	right:0;
 	z-index:1;
@@ -74,25 +75,12 @@ li.active {
 	iframe.expand-div {
 		margin-left: 120px;
 	}
-	div.expand-div {
-		margin-right: 50px;
-	}
-	#prev-selector {
-		display: none;
-	}
-	#navbar {
-		margin-right:-10px;
-		margin-top:-20px;
-	}
 }
 @media screen and (min-width: 991px) {
 	iframe.expand-div {
 		margin-left: 200px;
 	}
 	div.expand-div {
-		margin-right: -20px;
-	}
-	#prev-selector {
-		display: block;
+		margin-right: -40px;
 	}
 }
