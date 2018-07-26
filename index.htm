@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Sam Holmberg</title>
+    <title>Samuel Holmberg</title>
 	
 	<!-- custom stylesheet -->
     <link rel="stylesheet" href="style.css" />
@@ -35,6 +35,22 @@
 			
 			$("#wrapper").css("transform", new_scale);
 			$("#navbar").css("transform", new_scale);
+			
+			new_h *= 1;
+			if (new_h < 1) {
+				$("#content").css("transform", "scale(" + new_h + ")");
+				$("#content-lower").css("transform", "scale(" + new_h + ")");
+			} else {
+				$("#content").css("transform", "scale(1)");
+				$("#content-lower").css("transform", "scale(1)");
+			}
+			
+
+			if (h/w*250-70 > 0) {
+				$("#content-wrapper").css("margin-bottom", (h/w*250-70) + "px");
+			} else {
+				$("#content-wrapper").css("margin-bottom", "0px");
+			}
 		}
 	
 		$(window).on('resize', function() {
@@ -72,96 +88,97 @@
 	  </nav>
 	</div>
 	
-    <div id="wrapper" class="body">
-	<!-- purple sidebar graphic -->
-	<div style="width:32%;">
+    <div id="wrapper" class="sidebar">
+		<!-- purple sidebar graphic -->
+		<div>
+			<svg viewBox="0 0 32 150" width="100%" height="100%">
+				<filter id="dropshadow" height="130%">
+				  <feGaussianBlur in="SourceAlpha" stdDeviation="0.5"/> <!-- stdDeviation is how much to blur -->
+				  <feOffset dx="1" dy="0" result="offsetblur"/> <!-- how much to offset -->
+				  <feComponentTransfer>
+					<feFuncA type="linear" slope="0.3"/> <!-- slope is the opacity of the shadow -->
+				  </feComponentTransfer>
+				  <feMerge> 
+					<feMergeNode/> <!-- this contains the offset blurred image -->
+					<feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+				  </feMerge>
+				</filter>
+				
+				<polygon points="0,0 30,0 0,150" style="fill:#42345F; filter:url(#dropshadow);" />
+				<polygon points="0,0 30,0 28.4,8 0,10" style="fill:#CDCBAA;" />
+			</svg>
+		</div>
+		
+		<!-- name area -->
+		<div class="name-div">
+			<div class="name">
+				SAMUEL HOLMBERG
+			</div>
+			<div class="title">
+				Software Developer
+				<br />
+				Digital Artist
+			</div>
+		</div>
+		
+		<!-- left sidebar content -->
+		<div class="margin-content-bar" style="margin-top:280px;">
+			<div id="margin-info" style="padding:15px; padding-top:5px; font-family: 'Roboto'; text-align: center; color: #FFF;">
+				<div id="header" style="font-size: 27px;">
+					WHAT I LOVE TO DO
+				</div>
+				<div id="details" style="font-size:17px;">
+					Live the life of code
+					<br />
+					See the world in design
+				</div>
+				
+				<button id="action" type="button" class="btn btn-outline-light btn-square" style="margin-top:15px;">View Resume</button>
+			</div>
+		</div>
+	</div>
+	<div id="content-wrapper" class="content-body">
+		<!-- main content contains right elements elements -->
+		<div id="content" class="main-content underlay">
+
+			<div id="hello" class="carousel slide" data-ride="carousel">
+
+			  <!-- Indicators -->
+			  <ul class="carousel-indicators">
+				<li data-target="#hello" data-slide-to="0" class="active"></li>
+				<li data-target="#hello" data-slide-to="1"></li>
+				<li data-target="#hello" data-slide-to="2"></li>
+			  </ul>
+
+			  <!-- The slideshow -->
+			  <div class="carousel-inner">
+				<div id="resume-graphic" class="carousel-item active" >
+				  <img src="images/portrait.jpg" class="carousel-resize-image" alt="Portrait">
+				</div>
+				<div id="code-graphic" class="carousel-item">
+				  <img src="images/tanay.jpg" class="carousel-resize-image" alt="Tanay">
+				</div>
+				<div id="art-graphic" class="carousel-item">
+				  <img src="images/lucas.jpg" class="carousel-resize-image" alt="Lucas">
+				</div>
+			  </div>
+
+			</div>
+		</div>
+		<div id="content-lower" class="main-content overlay" style="padding-top:40%;">
+
+		  <!-- Left and right controls -->
+		  <a id="prev-selector" class="carousel-control-prev" href="#hello" data-slide="prev">
+			<span class="carousel-control-prev-icon"></span>
+		  </a>
+		  <a class="carousel-control-next" href="#hello" data-slide="next">
+			<span class="carousel-control-next-icon"></span>
+		  </a>
+		</div>
+	</div>
 	<script>
 		resizeToFit();
 	</script>
-		<svg viewBox="0 0 32 150" width="100%" height="100%">
-			<filter id="dropshadow" height="130%">
-			  <feGaussianBlur in="SourceAlpha" stdDeviation="0.5"/> <!-- stdDeviation is how much to blur -->
-			  <feOffset dx="1" dy="0" result="offsetblur"/> <!-- how much to offset -->
-			  <feComponentTransfer>
-				<feFuncA type="linear" slope="0.3"/> <!-- slope is the opacity of the shadow -->
-			  </feComponentTransfer>
-			  <feMerge> 
-				<feMergeNode/> <!-- this contains the offset blurred image -->
-				<feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
-			  </feMerge>
-			</filter>
-			
-			<polygon points="0,0 30,0 0,150" style="fill:#42345F; filter:url(#dropshadow);" />
-			<polygon points="0,0 30,0 28.4,8 0,10" style="fill:#CDCBAA;" />
-		</svg>
-	</div>
-	
-	<!-- name area -->
-	<div class="name-div">
-		<div class="name">
-			SAM HOLMBERG
-		</div>
-		<div class="title">
-			Software Developer
-			<br />
-			Digital Artist
-		</div>
-	</div>
-	
-	<!-- left sidebar content -->
-	<div class="margin-content-bar" style="margin-top:280px;">
-		<div id="margin-info" style="padding:15px; padding-top:5px; font-family: 'Roboto'; text-align: center; color: #FFF;">
-			<div id="header" style="font-size: 27px;">
-				WHAT I LOVE TO DO
-			</div>
-			<div id="details" style="font-size:17px;">
-				Live the life of code
-				<br />
-				See the world in design
-			</div>
-			
-			<button id="action" type="button" class="btn btn-outline-light" style="margin-top:15px;">View Resume</button>
-		</div>
-	</div>
-	
-	<!-- main (right) sidebar content -->
-	<div class="main-content underlay expand-div" style="margin-top:15%;">
-		<div id="hello" class="carousel slide" data-ride="carousel">
-
-		  <!-- Indicators -->
-		  <ul class="carousel-indicators">
-			<li data-target="#hello" data-slide-to="0" class="active"></li>
-			<li data-target="#hello" data-slide-to="1"></li>
-			<li data-target="#hello" data-slide-to="2"></li>
-		  </ul>
-
-		  <!-- The slideshow -->
-		  <div class="carousel-inner">
-			<div id="resume-graphic" class="carousel-item active" >
-			  <img src="images/portrait.jpg" class="carousel-resize-image" alt="Portrait">
-			</div>
-			<div id="code-graphic" class="carousel-item">
-			  <img src="images/tanay.jpg" class="carousel-resize-image" alt="Tanay">
-			</div>
-			<div id="art-graphic" class="carousel-item">
-			  <img src="images/lucas.jpg" class="carousel-resize-image" alt="Lucas">
-			</div>
-		  </div>
-
-		</div>
-	</div>
-	<!-- secondary div which contains clickable elements -->
-	<div class="main-content expand-div" style="margin-top:30%;">
-
-	  <!-- Left and right controls -->
-	  <a id="prev-selector" class="carousel-control-prev" href="#hello" data-slide="prev">
-		<span class="carousel-control-prev-icon"></span>
-	  </a>
-	  <a class="carousel-control-next" href="#hello" data-slide="next">
-		<span class="carousel-control-next-icon"></span>
-	  </a>
-	</div>
-	</div>
 	
 	<!-- javascript necessary for carousel -->
 	<script>

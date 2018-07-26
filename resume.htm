@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Resume - Sam Holmberg</title>
+    <title>Resume - Samuel Holmberg</title>
     
 	<!-- custom stylesheet -->
     <link rel="stylesheet" href="style.css" />
@@ -38,15 +38,17 @@
 			
 			$("#wrapper").css("transform", new_scale);
 			$("#navbar").css("transform", new_scale);
+			$("#resume-frame").css("transform", new_scale);
+			
 		}
 		
 		var resizeResumeToFit = function() {
 			var w = $(this).width(); //this = window
 			var h = $(this).height(); //this = window
 			
-			var new_h = h/w*55;
-			if (new_h < 28) {
-				new_h = 28;
+			var new_h = h/w*130-5;
+			if (new_h < 60) {
+				new_h = 60;
 			}
 			var new_h_val = new_h + "%";
 			$("#resume-frame").css("height", new_h_val);
@@ -60,7 +62,8 @@
 	</script>
 	
   </head>
-  <body class="background" >
+  <body class="background">
+  
 	<!-- navbar area -->
 	<div id="navbar" class="navbar-div">
 	  <nav class="navbar navbar-expand-lg">
@@ -87,62 +90,61 @@
 	  </nav>
 	</div>
   
-    <div id="wrapper" class="body">
-	<script>
-		resizeToFit();
-	</script>
-	
-	<!-- purple sidebar graphic -->
-	<div style="width:32%;">
-		<svg viewBox="0 0 32 150" width="100%" height="100%">
-			<filter id="dropshadow" height="130%">
-			  <feGaussianBlur in="SourceAlpha" stdDeviation="0.5"/> <!-- stdDeviation is how much to blur -->
-			  <feOffset dx="1" dy="0" result="offsetblur"/> <!-- how much to offset -->
-			  <feComponentTransfer>
-				<feFuncA type="linear" slope="0.3"/> <!-- slope is the opacity of the shadow -->
-			  </feComponentTransfer>
-			  <feMerge> 
-				<feMergeNode/> <!-- this contains the offset blurred image -->
-				<feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
-			  </feMerge>
-			</filter>
-			
-			<polygon points="0,0 30,0 0,150" style="fill:#42345F; filter:url(#dropshadow);" />
-			<polygon points="0,0 30,0 28.4,8 0,10" style="fill:#CDCBAA;" />
-		</svg>
-	</div>
-	
-	<!-- name area -->
-	<div class="name-div">
-		<div class="name">
-			SAM HOLMBERG
+    <div id="wrapper" class="sidebar">
+		<!-- purple sidebar graphic -->
+		<div>
+			<svg viewBox="0 0 32 150" width="100%" height="100%">
+				<filter id="dropshadow" height="130%">
+				  <feGaussianBlur in="SourceAlpha" stdDeviation="0.5"/> <!-- stdDeviation is how much to blur -->
+				  <feOffset dx="1" dy="0" result="offsetblur"/> <!-- how much to offset -->
+				  <feComponentTransfer>
+					<feFuncA type="linear" slope="0.3"/> <!-- slope is the opacity of the shadow -->
+				  </feComponentTransfer>
+				  <feMerge> 
+					<feMergeNode/> <!-- this contains the offset blurred image -->
+					<feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+				  </feMerge>
+				</filter>
+				
+				<polygon points="0,0 30,0 0,150" style="fill:#42345F; filter:url(#dropshadow);" />
+				<polygon points="0,0 30,0 28.4,8 0,10" style="fill:#CDCBAA;" />
+			</svg>
 		</div>
-		<div class="title">
-			Software Developer
-			<br />
-			Digital Artist
-		</div>
-	</div>
-	
-	<!-- left sidebar content -->
-	<div class="margin-content-bar" style="margin-top:200px;">
-		  <img style="height: 150px;
-			border-radius: 90px;
-			margin-left:80px;" src="images/headshot.jpg">
-			<div class="roboto" style="color:#DDD; padding:30px; font-size: 15px; ">
-				<a href="Business Resume 2018 - Samuel Holmberg.pdf" style="font-weight:bolder; color:#67A1C1;"><span class="oi oi-document"></span> PDF Download</a><br /><br />
-				<span class="oi oi-phone"></span> (240) 543-7214<br /><br />
-				<a href="mailto:samuel.d.holmberg@gmail.com" style="color:#DDD;"><span class="oi oi-envelope-open"></span> samuel.d.holmberg@gmail.com</a><br />
+		
+		<!-- name area -->
+		<div class="name-div">
+			<div class="name">
+				SAMUEL HOLMBERG
 			</div>
-	</div>
+			<div class="title">
+				Software Developer
+				<br />
+				Digital Artist
+			</div>
+		</div>
 	
-	<!-- main (right) sidebar content -->
-	<div id="resume-frame" class="main-content" style="margin-top:5%; height:40%;">
-		<iframe class="expand-div" style="margin-top:20px; border:none; overflow:overlay;" src="resume_doc.htm" height="100%" width="800"></iframe>
+		<!-- left sidebar content -->
+		<div class="margin-content-bar" style="margin-top:200px;">
+				<img style="height: 150px;
+				border-radius: 90px;
+				margin-left:80px;" src="images/headshot.jpg">
+				<div class="roboto" style="color:#DDD; padding:30px; font-size: 15px; ">
+					<a href="Business Resume 2018 - Samuel Holmberg.pdf" style="font-weight:bolder; color:#67A1C1;"><span class="oi oi-document"></span> PDF Download</a><br /><br />
+					<span class="oi oi-phone"></span> (240) 543-7214<br /><br />
+					<a href="mailto:samuel.d.holmberg@gmail.com" style="color:#DDD;"><span class="oi oi-envelope-open"></span> samuel.d.holmberg@gmail.com</a><br />
+				</div>
+		</div>
+		
 	</div>
+	<div id="content-wrapper" class="content-body" style="width:70%;">	
+		<!-- main (right) sidebar content -->
+		<div id="resume-frame" class="main-content" style="transform-origin: bottom left;">
+			<script>
+				resizeToFit();
+				resizeResumeToFit();
+			</script>
+			<iframe class="expand-div" style="margin-top:20px; border:none; overflow:overlay;" src="resume_doc.htm" height="100%" width="800"></iframe>
+		</div>
 	</div>
-	<script>
-		resizeResumeToFit();
-	</script>
   </body>
 </html>

@@ -1,12 +1,12 @@
 .background {
 	background-color:#323F51; 
-	overflow: hidden; 
+	overflow: hidden;
 }
-.body {
+.sidebar {
 	margin:0px; 
-	width:1300px; 
+	width:400px; 
 	transform-origin:0 0;
-	z-index: -1;
+	z-index: 2000;
 }
 .name-div {
 	width:100%; 
@@ -42,7 +42,7 @@
 	position:absolute; 
 	top:0; 
 	left:0; 
-	width:320px; 
+	width:300px;
 }
 .nav-link {
 	color: #FFF;
@@ -52,16 +52,22 @@
 li.active {
 	border-bottom: 2px solid white;
 }
-.main-content {
+.content-body {
+	margin:0px;
+	width:80%;
+	height:1000px;
+	transform-origin:top right;
 	position:absolute; 
-	top:0; 
-	right:0; 
-	width:80%; 
+	right:0;
+	bottom:0;
 }
-.underlay {
-	z-index:-1; 
+.main-content {
+	margin: 0px auto;
+	padding-bottom:5%;
+	transform-origin: bottom center;
+	position: absolute;
+	bottom: 0;
 }
-
 .carousel-resize-image {
 	width:75%; 
 	margin-left:13%;
@@ -69,18 +75,13 @@ li.active {
 	margin-bottom:10px;
 	margin-top:10px;
 }
-
-
-@media screen and (max-width: 991px) {
-	iframe.expand-div {
-		margin-left: 120px;
-	}
+.btn.btn-square { 
+	border-radius: 0; 
 }
-@media screen and (min-width: 991px) {
-	iframe.expand-div {
-		margin-left: 200px;
-	}
-	div.expand-div {
-		margin-right: -40px;
-	}
+.underlay {
+	z-index: -1;
+}
+.overlay {
+	z-index: 1;
+	width:100%;
 }
