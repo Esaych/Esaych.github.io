@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Sam Holmberg</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    <title>Contact - Samuel Holmberg</title>
+    
+	<!-- custom stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+	
+	<!-- google fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	
+    <!-- bootstrap stylesheets -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -11,64 +19,115 @@
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </head>
-  <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="center navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.htm">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="resume.htm">Resume</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Code Portfolio
-		  <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="art.htm">Art Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.htm">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="center name">Sam Holmberg</div>
-  <div class="center divider"></div>
-  <p class="center descriptor">Software Developer // Digital Artist</p>
-  <div class="center section" style="width:800px;">
-    <div class="left">
-		<div class="header">GitHub</div>
-		<p>
-		  <span>Check out all my public projects on our favorite collaborative code sharing site, https://github.com/Esaych</span>
-		</p>
-		<p>
-		  <span>While I do have other projects, there are many that are confidential under FDA and E-Paga Inc. contract of business.</span>
-		</p>
-		<p>
-		  <span>See About Me for more information on that.</span>
-		</p>
-		<p>
-		  <span>I&#39;ve worked professionally with Java, SQL, PHP, CSS, Bootstrap, and Perl.</span>
-		</p>
-		<p>
-		  <span>And I have good practice in C, Python, and Linux</span>
-		</p>
-		<div class="header">Android Java Programming</div>
-		<p>https://github.com/Esaych/Hoops</p>
-		<p>https://play.google.com/store/apps/details?id=com.esaych.hoops</p>
+	
+	<!-- icons -->
+	<link rel="stylesheet" href="open-iconic/font/css/open-iconic-bootstrap.min.css">
+	
+  
+	<!-- resizing scripts ensure perfect screen rendor-->
+	<script>
 		
-		<div class="header">Java Library Development</div>
-		<p>https://github.com/Esaych/edline-api</p>
-		<div class="header">Android XML Programming</div>
-		<p>Co-author/contributor<p>
-		<p>Projects, https://github.com/09wakharet/CalcChat</p>
-		<div class="header">Web/Java Minecraft Development</div>
-		<p>Owner/Webmaster/Developer</p>
-		<p>https://github.com/Esaych/edline-api</p>
+		var resizeToFit = function() {
+			var w = $(this).width(); //this = window
+			var h = $(this).height(); //this = window
+			var new_w = w/1300;
+			var new_h = h/650;
+			var new_scale = "scale(" + new_w + ")";
+			
+			if (new_w > new_h)
+				new_scale = "scale(" + new_h + ")";
+			
+			$("#wrapper").css("transform", new_scale);
+			$("#navbar").css("transform", new_scale);
+			$("#content").css("transform", new_scale);
+			
+		}
+	
+		$(window).on('resize', function() {
+			resizeToFit()
+		});
+		
+	</script>
+	
+  </head>
+  <body class="background">
+  
+	<!-- navbar area -->
+	<div id="navbar" class="navbar-div">
+	  <nav class="navbar navbar-expand-lg">
+		<div class="navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+			  <a class="nav-link" href="index.htm">HOME</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="resume.htm">RESUME</a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">CODE
+			  <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="art.htm">ART</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="contact.htm">CONTACT</a>
+			</li>
+		  </ul>
+		</div>
+	  </nav>
 	</div>
-  </div>
+  
+    <div id="wrapper" class="sidebar">
+		<!-- purple sidebar graphic -->
+		<div>
+			<svg viewBox="0 0 32 150" width="100%" height="100%">
+				<filter id="dropshadow" height="130%">
+				  <feGaussianBlur in="SourceAlpha" stdDeviation="0.5"/> <!-- stdDeviation is how much to blur -->
+				  <feOffset dx="1" dy="0" result="offsetblur"/> <!-- how much to offset -->
+				  <feComponentTransfer>
+					<feFuncA type="linear" slope="0.3"/> <!-- slope is the opacity of the shadow -->
+				  </feComponentTransfer>
+				  <feMerge> 
+					<feMergeNode/> <!-- this contains the offset blurred image -->
+					<feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+				  </feMerge>
+				</filter>
+				
+				<polygon points="0,0 30,0 0,150" style="fill:#42345F; filter:url(#dropshadow);" />
+				<polygon points="0,0 30,0 28.4,8 0,10" style="fill:#CDCBAA;" />
+			</svg>
+		</div>
+		
+		<!-- name area -->
+		<div class="name-div">
+			<div class="name">
+				SAMUEL HOLMBERG
+			</div>
+			<div class="title">
+				Software Developer
+				<br />
+				Digital Artist
+			</div>
+		</div>
+	
+		<!-- left sidebar content -->
+		<div class="margin-content-bar" style="margin-top:200px;">
+				<img style="height: 150px;
+				border-radius: 90px;
+				margin-left:80px;" src="images/headshot.jpg">
+				
+		</div>
+		
+	</div>
+	<div id="content-wrapper" class="content-body" style="top:0px; margin-top:50px">
+		<!-- main content contains right elements elements -->
+		<div id="content" class="main-content" style="overflow:overlay; height: 600px; margin-right:40px; transform-origin: top center;" >
+			<script>
+				resizeToFit();
+			</script>
+
+		</div>
+	</div>
   </body>
 </html>

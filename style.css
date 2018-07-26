@@ -54,7 +54,7 @@ li.active {
 }
 .content-body {
 	margin:0px;
-	width:80%;
+	width: 70%;
 	height:1000px;
 	transform-origin:top right;
 	position:absolute; 
@@ -66,6 +66,8 @@ li.active {
 	padding-bottom:5%;
 	transform-origin: bottom center;
 	position: absolute;
+}
+.bottom {
 	bottom: 0;
 }
 .carousel-resize-image {
@@ -84,4 +86,46 @@ li.active {
 .overlay {
 	z-index: 1;
 	width:100%;
+}
+.header {
+	font-size:15pt;
+	padding:20px;
+	color:white;
+}
+.bspText {
+	color:white !important;
+	background: none !important;
+}
+.bspImgWrapper {
+	box-shadow: 5px 5px 10px #242D3A;
+}
+td {
+	color:#CCCCCC;
+	text-align: left; 
+	padding: 5px 30px;
+}
+td:first-child { 
+	text-align: right;
+	font-weight: bold;
+	vertical-align: text-top;	
+}
+.link {
+    color:#67A1C1;
+}
+
+/* scrollbars */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1; 
+}
+ 
+::-webkit-scrollbar-thumb {
+	background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555; 
 }

@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Sam Holmberg</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    <title>Contact - Samuel Holmberg</title>
+    
+	<!-- custom stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+	
+	<!-- google fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	
+    <!-- bootstrap stylesheets -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -11,97 +19,175 @@
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+	<!-- icons -->
+	<link rel="stylesheet" href="open-iconic/font/css/open-iconic-bootstrap.min.css">
+	
+  
+	<!-- resizing scripts ensure perfect screen rendor-->
+	<script>
+		
+		var resizeToFit = function() {
+			var w = $(this).width(); //this = window
+			var h = $(this).height(); //this = window
+			var new_w = w/1300;
+			var new_h = h/650;
+			var new_scale = "scale(" + new_w + ")";
+			
+			if (new_w > new_h)
+				new_scale = "scale(" + new_h + ")";
+			
+			$("#wrapper").css("transform", new_scale);
+			$("#navbar").css("transform", new_scale);
+			$("#content").css("transform", new_scale);
+			
+			
+		}
+	
+		$(window).on('resize', function() {
+			resizeToFit()
+		});
+		
+	</script>
+	
   </head>
-  <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="center navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.htm">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="resume.htm">Resume</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="code.htm">Code Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="art.htm">Art Portfolio</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Contact 
-          <span class="sr-only">(current)</span></a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="center name">Sam Holmberg</div>
-  <div class="center divider"></div>
-  <p class="center descriptor">Software Developer // Digital Artist</p>
-  <div class="center" style="width:800px;">
-    <img style="height: 250px; float:left; margin: 80px 60px;" src="images/headshot.jpg" />
-    <div class="header" style="text-align:left;">Contact</div>
-    <table>
+  <body class="background">
+  
+	<!-- navbar area -->
+	<div id="navbar" class="navbar-div">
+	  <nav class="navbar navbar-expand-lg">
+		<div class="navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+			  <a class="nav-link" href="index.htm">HOME</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="resume.htm">RESUME</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="code.htm">CODE</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="art.htm">ART</a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">CONTACT
+			  <span class="sr-only">(current)</span></a>
+			</li>
+		  </ul>
+		</div>
+	  </nav>
+	</div>
+  
+    <div id="wrapper" class="sidebar">
+		<!-- purple sidebar graphic -->
+		<div>
+			<svg viewBox="0 0 32 150" width="100%" height="100%">
+				<filter id="dropshadow" height="130%">
+				  <feGaussianBlur in="SourceAlpha" stdDeviation="0.5"/> <!-- stdDeviation is how much to blur -->
+				  <feOffset dx="1" dy="0" result="offsetblur"/> <!-- how much to offset -->
+				  <feComponentTransfer>
+					<feFuncA type="linear" slope="0.3"/> <!-- slope is the opacity of the shadow -->
+				  </feComponentTransfer>
+				  <feMerge> 
+					<feMergeNode/> <!-- this contains the offset blurred image -->
+					<feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+				  </feMerge>
+				</filter>
+				
+				<polygon points="0,0 30,0 0,150" style="fill:#42345F; filter:url(#dropshadow);" />
+				<polygon points="0,0 30,0 28.4,8 0,10" style="fill:#CDCBAA;" />
+			</svg>
+		</div>
+		
+		<!-- name area -->
+		<div class="name-div">
+			<div class="name">
+				SAMUEL HOLMBERG
+			</div>
+			<div class="title">
+				Software Developer
+				<br />
+				Digital Artist
+			</div>
+		</div>
+	
+		<!-- left sidebar content -->
+		<div class="margin-content-bar" style="margin-top:200px;">
+				<img style="height: 150px;
+				border-radius: 90px;
+				margin-left:80px;" src="images/headshot.jpg">
+				
+		</div>
+		
+	</div>
+	<div id="content-wrapper" class="content-body" style="top:0px; margin-top:150px">
+		<!-- main content contains right elements elements -->
+		<div id="content" class="main-content" style="width:50%; position: relative;" >
+			<script>
+				resizeToFit();
+			</script>
+			<table>
       <tr>
-        <td>Address:</td>
+        <td>Address</td>
         <td>
           11917 Clover Knoll Rd<br />North Potomac, MD 20878
         </td>
       </tr>
       <tr>
-        <td>Email:</td>
+        <td>Email</td>
         <td>
-          samuel.d.holmberg@gmail.com
+          <a class="link" href="mailto:samuel.d.holmberg@gmail.com">samuel.d.holmberg@gmail.com</a>
         </td>
       </tr>
       <tr>
-        <td>Text:</td>
+        <td>Phone</td>
         <td>
-          240-543-7214
+          (240) 543-7214
         </td>
       </tr>
       <tr>
-        <td>LinkedIn:</td>
+        <td>LinkedIn</td>
         <td>
           
-            <a href="https://www.linkedin.com/in/samuel-holmberg/">linkedin.com/in/samuel-holmberg</a>
+            <a class="link" href="https://www.linkedin.com/in/samuel-holmberg/">linkedin.com/in/samuel-holmberg</a>
           
         </td>
       </tr>
       <tr>
-        <td>GitHub:</td>
+        <td>GitHub</td>
         <td>
-          
-            <a href="https://github.com/Esaych">github.com/Esaych</a>
-          
+            <a class="link" href="https://github.com/Esaych">github.com/Esaych</a>
         </td>
       </tr>
     </table>
-    <div class="header" style="text-align:left;">Social</div>
-    <table>
+	
+    <table style="margin-top:50px;">
       <tr>
-        <td>Facebook:</td>
+        <td>Facebook</td>
         <td>
           
-            <a href="https://www.facebook.com/samuel.holmberg.33">facebook.com/samuel.holmberg.33</a>
+            <a class="link" href="https://www.facebook.com/samuel.holmberg.33">facebook.com/samuel.holmberg.33</a>
           
         </td>
       </tr>
       <tr>
-        <td>Instagram:</td>
+        <td>Instagram</td>
         <td>
           
-            <a href="https://www.instagram.com/sholmberg_/">sholmberg_</a>
+            <a class="link" href="https://www.instagram.com/sholmberg_/">sholmberg_</a>
           
         </td>
       </tr>
       <tr>
-        <td>Snapchat:</td>
+        <td>Snapchat</td>
         <td>
           sirsamurr
         </td>
       </tr>
     </table>
-  </div>
+
+		</div>
+	</div>
   </body>
 </html>
