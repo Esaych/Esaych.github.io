@@ -31,14 +31,22 @@
 			var h = $(this).height(); //this = window
 			var new_w = w/1300;
 			var new_h = h/650;
-			var new_scale = "scale(" + new_w + ")";
 			
+			var new_use = new_w;
 			if (new_w > new_h)
-				new_scale = "scale(" + new_h + ")";
+				new_use = new_h;
+			
+			if (new_use > 1)
+				new_use = 1;
+			
+			if (new_use < 0.5)
+				new_use = 0.5;
+				
+			var new_scale = "scale(" + new_use + ")";
 			
 			$("#wrapper").css("transform", new_scale);
 			$("#navbar").css("transform", new_scale);
-			$("#resume-frame").css("transform", new_scale);
+			$("#content").css("transform", new_scale);
 			
 		}
 		
@@ -46,12 +54,12 @@
 			var w = $(this).width(); //this = window
 			var h = $(this).height(); //this = window
 			
-			var new_h = h/w*130-5;
-			if (new_h < 60) {
-				new_h = 60;
+			var new_h = h/w*1300;
+			if (new_h < 685) {
+				new_h = 685;
 			}
-			var new_h_val = new_h + "%";
-			$("#resume-frame").css("height", new_h_val);
+			var new_h_val = new_h + "px";
+			$("#content").css("height", new_h_val);
 		}
 	
 		$(window).on('resize', function() {
@@ -128,22 +136,22 @@
 				<img style="height: 150px;
 				border-radius: 90px;
 				margin-left:80px;" src="images/headshot.jpg">
-				<div class="roboto" style="color:#DDD; padding:30px; font-size: 15px; ">
+				<div class="roboto" style="color:#DDD; padding:30px; text-align:center; font-size: 15px; ">
+					<h4>RESUME</h4>
 					<a class="link" href="Business Resume 2018 - Samuel Holmberg.pdf" style="font-weight:bolder;"><span class="oi oi-document"></span> PDF Download</a><br /><br />
-					<span class="oi oi-phone"></span> (240) 543-7214<br /><br />
-					<a href="mailto:samuel.d.holmberg@gmail.com" style="color:#DDD;"><span class="oi oi-envelope-open"></span> samuel.d.holmberg@gmail.com</a><br />
 				</div>
 		</div>
 		
 	</div>
 	<div id="content-wrapper" class="content-body">	
 		<!-- main (right) sidebar content -->
-		<div id="resume-frame" class="main-content bottom" style="transform-origin: bottom left;">
+		<div id="content" class="main-content hug-left-when-small" style="padding-top:100px; transform-origin: top left;">
 			<script>
 				resizeToFit();
 				resizeResumeToFit();
 			</script>
-			<iframe class="expand-div" style="margin-top:20px; border:none; overflow:overlay;" src="resume_doc.htm" height="100%" width="800"></iframe>
+			<iframe style="border:none; overflow:overlay;" src="resume_doc.htm" height="100%" width="800"></iframe>
+			
 		</div>
 	</div>
   </body>

@@ -28,29 +28,31 @@
 			var h = $(this).height(); //this = window
 			var new_w = w/1300;
 			var new_h = h/650;
-			var new_scale = "scale(" + new_w + ")";
 			
+			var new_use = new_w;
 			if (new_w > new_h)
-				new_scale = "scale(" + new_h + ")";
+				new_use = new_h;
+			
+			if (new_use > 1)
+				new_use = 1;
+			
+			if (new_use < 0.5)
+				new_use = 0.5;
+				
+			var new_scale = "scale(" + new_use + ")";
 			
 			$("#wrapper").css("transform", new_scale);
 			$("#navbar").css("transform", new_scale);
+			$("#content").css("transform", new_scale);
+			$("#content-lower").css("transform", new_scale);
 			
-			new_h *= 1;
-			if (new_h < 1) {
-				$("#content").css("transform", "scale(" + new_h + ")");
-				$("#content-lower").css("transform", "scale(" + new_h + ")");
+			
+			if (w < 1300) {
+				$("#content-lower").css("display", "none")
 			} else {
-				$("#content").css("transform", "scale(1)");
-				$("#content-lower").css("transform", "scale(1)");
+				$("#content-lower").css("display", "inherit")
 			}
-			
 
-			if (h/w*250-70 > 0) {
-				$("#content-wrapper").css("margin-bottom", (h/w*250-70) + "px");
-			} else {
-				$("#content-wrapper").css("margin-bottom", "0px");
-			}
 		}
 	
 		$(window).on('resize', function() {
@@ -139,8 +141,8 @@
 	</div>
 	<div id="content-wrapper" class="content-body" style="width: 80%;">
 		<!-- main content contains right elements elements -->
-		<div id="content" class="main-content underlay bottom">
 
+		<div id="content" class="main-content underlay" style="width:1000px; padding-top: 200px; transform-origin: top left;">
 			<div id="hello" class="carousel slide" data-ride="carousel">
 
 			  <!-- Indicators -->
@@ -165,15 +167,16 @@
 
 			</div>
 		</div>
-		<div id="content-lower" class="main-content overlay bottom" style="padding-top:40%;">
-
+		<div class="overlay" style="width:1000px;">
+		  <div id="content-lower" class="main-content" style="position:relative; left:-500px; padding-top:750px; transform-origin: top left">
 		  <!-- Left and right controls -->
 		  <a id="prev-selector" class="carousel-control-prev" href="#hello" data-slide="prev">
 			<span class="carousel-control-prev-icon"></span>
 		  </a>
-		  <a class="carousel-control-next" href="#hello" data-slide="next">
+		  <a id="next-selector" class="carousel-control-next" href="#hello" data-slide="next">
 			<span class="carousel-control-next-icon"></span>
 		  </a>
+		  </div>
 		</div>
 	</div>
 	<script>

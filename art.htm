@@ -45,27 +45,50 @@
 			var h = $(this).height(); //this = window
 			var new_w = w/1300;
 			var new_h = h/650;
-			var new_scale = "scale(" + new_w + ")";
 			
+			var new_use = new_w;
 			if (new_w > new_h)
-				new_scale = "scale(" + new_h + ")";
+				new_use = new_h;
+			
+			if (new_use > 1)
+				new_use = 1;
+			
+			if (new_use < 0.5)
+				new_use = 0.5;
+				
+			var new_scale = "scale(" + new_use + ")";
 			
 			$("#wrapper").css("transform", new_scale);
 			$("#navbar").css("transform", new_scale);
 			$("#content").css("transform", new_scale);
 			
-			new_h *= 0.9;
-
-			if (new_h < 1) {
-//				$("#content").css("transform", "scale(" + new_h + ")");
-			} else {
-	//			$("#content").css("transform", "scale(1)");
-			}
+			var new_w = 95/new_use;
 			
+			var new_w_val = new_w + "%";
+			$("#content").css("width", new_w_val);
+			
+			if (new_use > 1) {
+				$("#content").css("transform-origin", "top center");
+			} else {
+				$("#content").css("transform-origin", "top left");
+			}
+		}
+		
+		var resizeResumeToFit = function() {
+			var w = $(this).width(); //this = window
+			var h = $(this).height(); //this = window
+			
+			var new_h = h/w*1300;
+			if (new_h < 685) {
+				new_h = 685;
+			}
+			var new_h_val = new_h + "px";
+			$("#content").css("height", new_h_val);
 		}
 	
 		$(window).on('resize', function() {
-			resizeToFit()
+			resizeToFit();
+			resizeResumeToFit();
 		});
 		
 	</script>
@@ -137,18 +160,21 @@
 				<img style="height: 150px;
 				border-radius: 90px;
 				margin-left:80px;" src="images/headshot.jpg">
-				
+				<div class="roboto" style="color:#DDD; padding:30px; text-align:center; font-size: 15px; ">
+					<h4>ART</h4>
+				</div>
 		</div>
 		
 	</div>
-	<div id="content-wrapper" class="content-body" style="top:0px; margin-top:0px">
+	<div id="content-wrapper" class="content-body" style="">
 		<!-- main content contains right elements elements -->
-		<div id="content" class="main-content" style="margin-right:40px; transform-origin: top center; padding-top:50px;">
-		<div style="overflow:overlay; height: 570px;">
+		<div id="content" class="main-content" style="height:576px; padding-top:75px; width:95%; transform-origin: top left;">
+		<div style="overflow:overlay; height: 100%;" class="art-hug-left">
 			<script>
 				resizeToFit();
+				resizeResumeToFit();
 			</script>
-			<div class="container">
+			<div class="container" style="margin-left:0px;">
         
 				<ul class="row first">
 					<div class="header" style="width:100%">Branding &amp; Icons</div>

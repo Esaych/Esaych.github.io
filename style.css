@@ -5,7 +5,7 @@
 .sidebar {
 	margin:0px; 
 	width:400px; 
-	transform-origin:0 0;
+	transform-origin:top left;
 	z-index: 2000;
 }
 .name-div {
@@ -36,7 +36,7 @@
 	transform-origin: top right;
 	top:0; 
 	right:0;
-	z-index:1;
+	z-index:2;
 }
 .margin-content-bar {
 	position:absolute; 
@@ -56,19 +56,17 @@ li.active {
 	margin:0px;
 	width: 70%;
 	height:1000px;
-	transform-origin:top right;
+	transform-origin:top center;
 	position:absolute; 
 	right:0;
-	bottom:0;
+	top:0px;
 }
 .main-content {
 	margin: 0px auto;
 	padding-bottom:5%;
-	transform-origin: bottom center;
-	position: absolute;
-}
-.bottom {
-	bottom: 0;
+	position: relative; 
+	padding-top: 150px; 
+	transform-origin: top center;
 }
 .carousel-resize-image {
 	width:75%; 
@@ -86,6 +84,9 @@ li.active {
 .overlay {
 	z-index: 1;
 	width:100%;
+	position: absolute;
+	top:0px;
+	left:50%;
 }
 .header {
 	font-size:15pt;
@@ -128,4 +129,13 @@ td:first-child {
 
 ::-webkit-scrollbar-thumb:hover {
 	background: #555; 
+}
+
+@media screen and (max-width: 991px) {  
+	.hug-left-when-small {
+		transform-origin: top left;
+	}
+	.art-hug-left {
+		margin-right: 50px;
+	}
 }

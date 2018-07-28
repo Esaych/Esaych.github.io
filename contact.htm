@@ -32,10 +32,18 @@
 			var h = $(this).height(); //this = window
 			var new_w = w/1300;
 			var new_h = h/650;
-			var new_scale = "scale(" + new_w + ")";
 			
+			var new_use = new_w;
 			if (new_w > new_h)
-				new_scale = "scale(" + new_h + ")";
+				new_use = new_h;
+			
+			if (new_use > 1)
+				new_use = 1;
+			
+			if (new_use < 0.5)
+				new_use = 0.5;
+				
+			var new_scale = "scale(" + new_use + ")";
 			
 			$("#wrapper").css("transform", new_scale);
 			$("#navbar").css("transform", new_scale);
@@ -117,7 +125,9 @@
 				<img style="height: 150px;
 				border-radius: 90px;
 				margin-left:80px;" src="images/headshot.jpg">
-				
+				<div class="roboto" style="color:#DDD; padding:30px; text-align:center; font-size: 15px; ">
+					<h4>CONTACT</h4>
+				</div>
 		</div>
 		
 	</div>
@@ -128,65 +138,59 @@
 				resizeToFit();
 			</script>
 			<table>
-      <tr>
-        <td>Address</td>
-        <td>
-          11917 Clover Knoll Rd<br />North Potomac, MD 20878
-        </td>
-      </tr>
-      <tr>
-        <td>Email</td>
-        <td>
-          <a class="link" href="mailto:samuel.d.holmberg@gmail.com">samuel.d.holmberg@gmail.com</a>
-        </td>
-      </tr>
-      <tr>
-        <td>Phone</td>
-        <td>
-          (240) 543-7214
-        </td>
-      </tr>
-      <tr>
-        <td>LinkedIn</td>
-        <td>
-          
-            <a class="link" href="https://www.linkedin.com/in/samuel-holmberg/">linkedin.com/in/samuel-holmberg</a>
-          
-        </td>
-      </tr>
-      <tr>
-        <td>GitHub</td>
-        <td>
-            <a class="link" href="https://github.com/Esaych">github.com/Esaych</a>
-        </td>
-      </tr>
-    </table>
-	
-    <table style="margin-top:50px;">
-      <tr>
-        <td>Facebook</td>
-        <td>
-          
-            <a class="link" href="https://www.facebook.com/samuel.holmberg.33">facebook.com/samuel.holmberg.33</a>
-          
-        </td>
-      </tr>
-      <tr>
-        <td>Instagram</td>
-        <td>
-          
-            <a class="link" href="https://www.instagram.com/sholmberg_/">sholmberg_</a>
-          
-        </td>
-      </tr>
-      <tr>
-        <td>Snapchat</td>
-        <td>
-          sirsamurr
-        </td>
-      </tr>
-    </table>
-
+			  <tr>
+				<td>Address</td>
+				<td>
+				  11917 Clover Knoll Rd<br />North Potomac, MD 20878
+				</td>
+			  </tr>
+			  <tr>
+				<td>Email</td>
+				<td>
+				  <a class="link" href="mailto:samuel.d.holmberg@gmail.com">samuel.d.holmberg@gmail.com</a>
+				</td>
+			  </tr>
+			  <tr>
+				<td>Phone</td>
+				<td>
+				  (240) 543-7214
+				</td>
+			  </tr>
+			  <tr>
+				<td>LinkedIn</td>
+				<td>
+					<a class="link" href="https://www.linkedin.com/in/samuel-holmberg/">linkedin.com/in/samuel-holmberg</a>
+				</td>
+			  </tr>
+			  <tr>
+				<td>GitHub</td>
+				<td>
+					<a class="link" href="https://github.com/Esaych">github.com/Esaych</a>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="padding-top:30px;"></td>
+				<td></td>
+			  </tr>
+			  <tr>
+				<td>Facebook</td>
+				<td>
+					<a class="link" href="https://www.facebook.com/samuel.holmberg.33">facebook.com/samuel.holmberg.33</a>
+				</td>
+			  </tr>
+			  <tr>
+				<td>Instagram</td>
+				<td>
+					<a class="link" href="https://www.instagram.com/sholmberg_/">sholmberg_</a>
+				</td>
+			  </tr>
+			  <tr>
+				<td>Snapchat</td>
+				<td>
+				  sirsamurr
+				</td>
+			  </tr>
+			</table>
 		</div>
 	</div>
   </body>
