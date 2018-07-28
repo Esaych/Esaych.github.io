@@ -33,8 +33,8 @@
 			if (new_w > new_h)
 				new_use = new_h;
 			
-			if (new_use > 1)
-				new_use = 1;
+			if (new_use > 1.2)
+				new_use = 1.2;
 			
 			if (new_use < 0.5)
 				new_use = 0.5;
@@ -91,6 +91,9 @@
 	</div>
 	
     <div id="wrapper" class="sidebar">
+			<script>
+				resizeToFit();
+			</script>
 		<!-- purple sidebar graphic -->
 		<div>
 			<svg viewBox="0 0 32 150" width="100%" height="100%">
@@ -143,6 +146,9 @@
 		<!-- main content contains right elements elements -->
 
 		<div id="content" class="main-content underlay" style="width:1000px; padding-top: 200px; transform-origin: top left;">
+			<script>
+				resizeToFit();
+			</script>
 			<div id="hello" class="carousel slide" data-ride="carousel">
 
 			  <!-- Indicators -->
@@ -179,9 +185,6 @@
 		  </div>
 		</div>
 	</div>
-	<script>
-		resizeToFit();
-	</script>
 	
 	<!-- javascript necessary for carousel -->
 	<script>

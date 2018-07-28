@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Contact - Samuel Holmberg</title>
+    <title>Code - Samuel Holmberg</title>
     
 	<!-- custom stylesheet -->
     <link rel="stylesheet" href="style.css" />
@@ -37,8 +37,8 @@
 			if (new_w > new_h)
 				new_use = new_h;
 			
-			if (new_use > 1)
-				new_use = 1;
+			if (new_use > 1.2)
+				new_use = 1.2;
 			
 			if (new_use < 0.5)
 				new_use = 0.5;
@@ -48,6 +48,7 @@
 			$("#wrapper").css("transform", new_scale);
 			$("#navbar").css("transform", new_scale);
 			$("#content").css("transform", new_scale);
+			
 			
 		}
 	
@@ -87,6 +88,9 @@
 	</div>
   
     <div id="wrapper" class="sidebar">
+			<script>
+				resizeToFit();
+			</script>
 		<!-- purple sidebar graphic -->
 		<div>
 			<svg viewBox="0 0 32 150" width="100%" height="100%">
@@ -124,17 +128,44 @@
 				<img style="height: 150px;
 				border-radius: 90px;
 				margin-left:80px;" src="images/headshot.jpg">
-				
+				<div class="roboto" style="color:#DDD; padding:30px; text-align:center; font-size: 15px; ">
+					<h4>CODE</h4>
+				</div>
 		</div>
 		
 	</div>
-	<div id="content-wrapper" class="content-body" style="top:0px; margin-top:50px">
+	<div id="content-wrapper" class="content-body" style="top:0px;">
 		<!-- main content contains right elements elements -->
-		<div id="content" class="main-content" style="overflow:overlay; height: 600px; margin-right:40px; transform-origin: top center;" >
+		<div id="content" class="main-content" style="width:50%; position: relative; padding-top: 150px; transform-origin: top center; color:white;" >
 			<script>
 				resizeToFit();
 			</script>
-
+			<div>
+			<h4>GitHub</h4>
+Check out all my public projects on our favorite collaborative code sharing site, https://github.com/Esaych
+<br />
+While I do have other projects, there are many that are confidential under FDA and E-Paga Inc. contract of business.
+<br />
+See Resume for more information on that.
+<br />
+<h5>Android Java Programming</h5>
+https://github.com/Esaych/Hoops
+<br />
+https://play.google.com/store/apps/details?id=com.esaych.hoops
+<br />
+<h5>Java Library Development</h5>
+https://github.com/Esaych/edline-api
+<br />
+<h5>Android XML Programming</h5>
+Co-author/contributor
+<br />
+Projects, https://github.com/09wakharet/CalcChat
+<br />
+<h5>Web/Java Minecraft Development</h5>
+Owner/Webmaster/Developer
+<br />
+https://github.com/Esaych/edline-api
+			</div>
 		</div>
 	</div>
   </body>

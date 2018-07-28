@@ -37,8 +37,8 @@
 			if (new_w > new_h)
 				new_use = new_h;
 			
-			if (new_use > 1)
-				new_use = 1;
+			if (new_use > 1.2)
+				new_use = 1.2;
 			
 			if (new_use < 0.5)
 				new_use = 0.5;
@@ -88,6 +88,9 @@
 	</div>
   
     <div id="wrapper" class="sidebar">
+			<script>
+				resizeToFit();
+			</script>
 		<!-- purple sidebar graphic -->
 		<div>
 			<svg viewBox="0 0 32 150" width="100%" height="100%">
