@@ -23,6 +23,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	
+	<!-- icons -->
+	<link rel="stylesheet" href="open-iconic/font/css/open-iconic-bootstrap.min.css">
+	
 	<!-- resizing scripts ensure perfect screen rendor-->
 	<script>
 		
@@ -34,12 +37,12 @@
 	
 		<!-- purple sidebar graphic -->
 		<div style="width:100%;">
-			<svg viewBox="0 0 100 20" width="100%" height="100%">
+			<svg viewBox="0 0 100 24" width="100%" height="100%">
 				<filter id="dropshadow" height="130%">
-				  <feGaussianBlur in="SourceAlpha" stdDeviation="0.5"/> <!-- stdDeviation is how much to blur -->
-				  <feOffset dx="1" dy="0" result="offsetblur"/> <!-- how much to offset -->
+				  <feGaussianBlur in="SourceAlpha" stdDeviation="1"/> <!-- stdDeviation is how much to blur -->
+				  <feOffset dx="1" dy="1" result="offsetblur"/> <!-- how much to offset -->
 				  <feComponentTransfer>
-					<feFuncA type="linear" slope="0.3"/> <!-- slope is the opacity of the shadow -->
+					<feFuncA type="linear" slope="0.5"/> <!-- slope is the opacity of the shadow -->
 				  </feComponentTransfer>
 				  <feMerge> 
 					<feMergeNode/> <!-- this contains the offset blurred image -->
@@ -59,23 +62,77 @@
 			</div>
 			<div style="position:absolute; top:0; right:0; width:70px; margin:40px;">
 			
-			<svg viewBox="0 0 22 20" width="100%" height="100%">
-				<filter id="dropshadow2" height="130%">
-				  <feGaussianBlur in="SourceAlpha" stdDeviation="0.5"/> <!-- stdDeviation is how much to blur -->
-				  <feOffset dx="1" dy="0" result="offsetblur"/> <!-- how much to offset -->
-				  <feComponentTransfer>
-					<feFuncA type="linear" slope="0.3"/> <!-- slope is the opacity of the shadow -->
-				  </feComponentTransfer>
-				  <feMerge> 
-					<feMergeNode/> <!-- this contains the offset blurred image -->
-					<feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
-				  </feMerge>
-				</filter>
-				
-				<polygon points="0,0 22,0 22,3 0,3" style="fill:#CDCBAA; filter:url(#dropshadow2);" />
-				<polygon points="0,7 22,7 22,10 0,10" style="fill:#CDCBAA; filter:url(#dropshadow2);" />
-				<polygon points="0,14 22,14 22,17 0,17" style="fill:#CDCBAA; filter:url(#dropshadow2);" />
-			</svg>
+				<svg viewBox="0 0 22 20" width="100%" height="100%">
+					<filter id="dropshadow2" height="130%">
+					  <feGaussianBlur in="SourceAlpha" stdDeviation="1"/> <!-- stdDeviation is how much to blur -->
+					  <feOffset dx="1" dy="1" result="offsetblur"/> <!-- how much to offset -->
+					  <feComponentTransfer>
+						<feFuncA type="linear" slope="1"/> <!-- slope is the opacity of the shadow -->
+					  </feComponentTransfer>
+					  <feMerge> 
+						<feMergeNode/> <!-- this contains the offset blurred image -->
+						<feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+					  </feMerge>
+					</filter>
+					
+					<polygon points="0,0 22,0 22,3 0,3" style="fill:#CDCBAA; filter:url(#dropshadow2);" />
+					<polygon points="0,7 22,7 22,10 0,10" style="fill:#CDCBAA; filter:url(#dropshadow2);" />
+					<polygon points="0,14 22,14 22,17 0,17" style="fill:#CDCBAA; filter:url(#dropshadow2);" />
+				</svg>
+			</div>
+		</div>
+		<div style="width:100%; padding: 50px 70px;">
+			<div style="padding:20px; width:40%; display:inline-block;">
+				<img src="images/portrait-sq.jpg" style="width:100%; box-shadow: 20px 20px 40px;"/>
+			</div>
+			<div style="padding:70px 30px 30px 90px; width:60%; display:inline-block; float:right;">
+				<div style="color:white; font-size: 40px;">
+					WHAT I LOVE TO DO
+				</div>
+				<div style="color:white; font-size: 25px;">
+					Live the life in code
+					<br />
+					See the world in design
+				</div>
+				<div style="font-size: 25px; padding-top:10px;">
+					<a href="resumem.htm" style="color:#67A1C1; font-style: italic">View Resume <span style="font-size:30px;">&#187;</span></a>
+				</div>
+			</div>
+		</div>
+		<div style="width:100%; padding: 50px 70px;">
+			<div style="padding:20px; width:40%; display:inline-block;">
+				<img src="images/tanay-sq.jpg" style="width:100%; box-shadow: 20px 20px 40px;"/>
+			</div>
+			<div style="padding:60px 30px 30px 90px; width:60%; display:inline-block; float:right;">
+				<div style="color:white; font-size: 40px;">
+					CODING AT HEART
+				</div>
+				<div style="color:white; font-size: 25px;">
+					Coding since 2009
+					<br />
+					Worked professionally with Java, SQL, C#, ColdFusion, and Ruby
+				</div>
+				<div style="font-size: 25px; padding-top:10px;">
+					<a href="codem.htm" style="color:#67A1C1; font-style: italic">View Code Portfolio <span style="font-size:30px;">&#187;</span></a>
+				</div>
+			</div>
+		</div>
+		<div style="width:100%; padding: 50px 70px;">
+			<div style="padding:20px; width:40%; display:inline-block;">
+				<img src="images/lucas-sq.jpg" style="width:100%; box-shadow: 20px 20px 40px;"/>
+			</div>
+			<div style="padding:60px 30px 30px 90px; width:60%; display:inline-block; float:right;">
+				<div style="color:white; font-size: 40px;">
+					DESIGN IN MIND
+				</div>
+				<div style="color:white; font-size: 25px;">
+					Good design requires a good eye
+					<br />
+					Professional experience in graphics and web design
+				</div>
+				<div style="font-size: 25px; padding-top:10px;">
+					<a href="artm.htm"  style="color:#67A1C1; font-style: italic">View Art Portfolio <span style="font-size:30px;">&#187;</span></a>
+				</div>
 			</div>
 		</div>
 		
