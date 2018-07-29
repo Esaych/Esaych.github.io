@@ -16,12 +16,12 @@
     <!-- bootstrap stylesheets -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
 	
 	<!-- resizing scripts ensure perfect screen rendor-->
 	<script>
@@ -149,9 +149,6 @@
 		<!-- main content contains right elements elements -->
 
 		<div id="content" class="main-content underlay" style="width:1000px; padding-top: 200px; transform-origin: top left;">
-			<script>
-				resizeToFit();
-			</script>
 			<div id="hello" class="carousel slide" data-ride="carousel">
 
 			  <!-- Indicators -->
@@ -186,7 +183,11 @@
 			<span class="carousel-control-next-icon"></span>
 		  </a>
 		  </div>
-		</div>
+		</div>		
+		<script>
+			resizeToFit();
+		</script>
+
 	</div>
 	
 	<!-- javascript necessary for carousel -->
@@ -197,19 +198,23 @@
 			
 			$("#hello").on('slide.bs.carousel', function(event){
 				var id = event.relatedTarget.getAttribute("id");
-				if (id === "resume-graphic") {
-					$("#header").text("WHAT I LOVE TO DO");
-					$("#details").html("Live the life of code<br />See the world in design");
-					$("#action").text("View Resume");
-				} else if (id === "code-graphic") {
-					$("#header").text("CODING AT HEART");
-					$("#details").html("I've been coding since 2009.<br />I've worked professionally with Java, SQL, C#, ColdFusion, and Ruby.");
-					$("#action").text("Code Portfolio");
-				} else if (id === "art-graphic") {
-					$("#header").text("DESIGN IN MIND");
-					$("#details").html("Good design requires a good eye.<br />I have professional experience in graphics and web design.");
-					$("#action").text("Art Portfolio");
-				}
+				$("#margin-info").fadeOut(300, function() {
+					if (id === "resume-graphic") {
+						$("#header").text("WHAT I LOVE TO DO");
+						$("#details").html("Live the life of code<br />See the world in design");
+						$("#action").text("View Resume");
+					} else if (id === "code-graphic") {
+						$("#header").text("CODING AT HEART");
+						$("#details").html("I've been coding since 2009.<br />I've worked professionally with Java, SQL, C#, ColdFusion, and Ruby.");
+						$("#action").text("Code Portfolio");
+					} else if (id === "art-graphic") {
+						$("#header").text("DESIGN IN MIND");
+						$("#details").html("Good design requires a good eye.<br />I have professional experience in graphics and web design.");
+						$("#action").text("Art Portfolio");
+					}
+					$("#margin-info").fadeIn(300);
+				});
+				
 			});
 			
 		});
