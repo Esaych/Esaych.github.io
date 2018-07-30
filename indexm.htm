@@ -180,13 +180,13 @@
 		<script>
 		$("#navbar-open").click(function() {
 			$("#hamburger").fadeOut(200, function() {
-				$("#navbar-pullout").animate({width:'50%'},200);
+				$("#navbar-pullout").animate({width:'50%', useTranslate3d:true},200);
 			});
 			
 		});
 		
 		function closeNav() {
-			$("#navbar-pullout").animate({width:'0%'},200, function() {
+			$("#navbar-pullout").animate({width:'0%', useTranslate3d:true},200, function() {
 				$("#hamburger").fadeIn(200);
 			});
 		}
