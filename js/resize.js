@@ -30,7 +30,9 @@ var resizeToFit = function() {
 			$("#content-lower").css("display", "inherit")
 		}
 		
-		$("#content-wrapper").css("margin-right", ((w-1300)/2.5) + "px");
+		if (h > 650) {
+			$("#content-wrapper").css("margin-right", ((w-1300)/2.5) + "px");
+		}
 	}
 	
 	//art only code
@@ -47,8 +49,12 @@ var resizeToFit = function() {
 		}
 	}
 	
-	if (w <= 1024) {
-		location.href = location.href.replace(".htm", "m.htm");
+	if (w <= 1024 && w/h < 1) {
+		var newloc = location.href.replace(".htm", "m.htm");
+		if (newloc === location.href) 
+			location.href = 'indexm.htm';
+		else 
+			location.href = location.href.replace(".htm", "m.htm");
 	}
 }
 
