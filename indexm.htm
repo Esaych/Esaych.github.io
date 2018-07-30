@@ -178,13 +178,13 @@
 		$("#navbar-open").click(function() {
 			$("#hamburger").fadeOut(200, function() {
 				$("#navbar-pullout").css("display", "");
-				$("#navbar-pullout").animate({width:'50%'},300);
+				$("#navbar-pullout").animate({width:'50%'},300,"linear");
 			});
 			
 		});
 		
 		function closeNav() {
-			$("#navbar-pullout").animate({width:'0%'},300, function() {
+			$("#navbar-pullout").animate({width:'0%'},300,"linear", function() {
 				$("#navbar-pullout").css("display", "none");
 				$("#hamburger").fadeIn(200);
 			});
