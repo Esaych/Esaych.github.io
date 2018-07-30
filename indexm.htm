@@ -7,7 +7,7 @@
 	<link href="favicon.ico" rel="shortcut icon" />
 	
 	<!-- custom stylesheet -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="stylem.css" />
 	
 	<!-- google fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
@@ -26,13 +26,10 @@
 	<link rel="stylesheet" href="open-iconic/font/css/open-iconic-bootstrap.min.css">
 	
 	<!-- resizing scripts ensure perfect screen rendor-->
-	<script>
-		
-	
-	</script>
+	<script type="text/javascript" src="js/resizem.js"></script>
 	
   </head>
-  <body style="background-color:#323F51">
+  <body class="body">
 	
 		<!-- purple sidebar graphic -->
 		<div style="width:100%;">
@@ -52,80 +49,79 @@
 				<polygon points="0,0 100,0 100,13 0,20" style="fill:#42345F; filter:url(#dropshadow);" />
 				<polygon points="0,0 67,0 63,15.5 0,20" style="fill:#CDCBAA; filter:url(#dropshadow);" />
 			</svg>
-			<div style="position:absolute; top:0; padding:10px 30px;">
-				<div style="font-family: 'Roboto Condensed'; font-weight: bolder; font-size: 55px;">SAMUEL HOLMBERG</div>
-				<div style="font-family: 'Roboto Condensed'; font-size: 33px; color: #777;">
-					<div style="margin-top:-10px;">Software Developer</div>
-					<div style="margin-top:-10px;">Digital Artist</div>
+			<div class="brand">
+				<div class="name">SAMUEL HOLMBERG</div>
+				<div class="title">
+					<div class="tight">Software Developer</div>
+					<div class="tight">Digital Artist</div>
 				</div>
 			</div>
 		</div>
-		<div style="width:100%; padding: 50px 70px;">
-			<div id="resume" style="padding:20px; width:40%; display:inline-block;">
-				<img onclick="location.href='resumem.htm'" src="images/portrait-sq.jpg" style="width:100%; box-shadow: 20px 20px 40px;"/>
+		<div class="overview-panel">
+			<div id="resume" class="overview-icon">
+				<img onclick="location.href='resumem.htm'" src="images/portrait-sq.jpg"/>
 			</div>
-			<div style="padding:70px 30px 30px 90px; width:60%; display:inline-block; float:right;">
-				<div style="color:white; font-size: 40px;">
+			<div class="overview-content">
+				<div style="font-size: 40px;">
 					WHAT I LOVE TO DO
 				</div>
-				<div style="color:white; font-size: 25px;">
+				<div style="font-size: 25px;">
 					Live the life in code
 					<br />
 					See the world in design
 				</div>
 				<div style="font-size: 25px; padding-top:10px;">
-					<a href="resumem.htm" style="color:#67A1C1; font-style: italic">View Resume <span style="font-size:30px;">&#187;</span></a>
+					<a href="resumem.htm">View Resume <span style="font-size:30px;">&#187;</span></a>
 				</div>
 			</div>
 		</div>
-		<div style="width:100%; padding: 50px 70px;">
-			<div id="code" style="padding:20px; width:40%; display:inline-block;">
-				<img onclick="location.href='codem.htm'" src="images/tanay-sq.jpg" style="width:100%; box-shadow: 20px 20px 40px;"/>
+		<div class="overview-panel">
+			<div id="code" class="overview-icon">
+				<img onclick="location.href='codem.htm'" src="images/tanay-sq.jpg"/>
 			</div>
-			<div style="padding:60px 30px 30px 90px; width:60%; display:inline-block; float:right;">
-				<div style="color:white; font-size: 40px;">
+			<div class="overview-content">
+				<div style="font-size: 40px;">
 					CODING AT HEART
 				</div>
-				<div style="color:white; font-size: 25px;">
+				<div style="font-size: 25px;">
 					Coding since 2009
 					<br />
 					Worked professionally with Java, SQL, C#, ColdFusion, and Ruby
 				</div>
 				<div style="font-size: 25px; padding-top:10px;">
-					<a href="codem.htm" style="color:#67A1C1; font-style: italic">View Code Portfolio <span style="font-size:30px;">&#187;</span></a>
+					<a href="codem.htm">View Code Portfolio <span style="font-size:30px;">&#187;</span></a>
 				</div>
 			</div>
 		</div>
-		<div style="width:100%; padding: 50px 70px;">
-			<div id="art" style="padding:20px; width:40%; display:inline-block;">
-				<img onclick="location.href='artm.htm'" src="images/lucas-sq.jpg" style="width:100%; box-shadow: 20px 20px 40px;"/>
+		<div class="overview-panel">
+			<div id="art" class="overview-icon">
+				<img onclick="location.href='artm.htm'" src="images/lucas-sq.jpg"/>
 			</div>
-			<div style="padding:60px 30px 30px 90px; width:60%; display:inline-block; float:right;">
-				<div style="color:white; font-size: 40px;">
+			<div class="overview-content">
+				<div style="font-size: 40px;">
 					DESIGN IN MIND
 				</div>
-				<div style="color:white; font-size: 25px;">
+				<div style="font-size: 25px;">
 					Good design requires a good eye
 					<br />
 					Professional experience in graphics and web design
 				</div>
 				<div style="font-size: 25px; padding-top:10px;">
-					<a href="artm.htm" style="color:#67A1C1; font-style: italic">View Art Portfolio <span style="font-size:30px;">&#187;</span></a>
+					<a href="artm.htm">View Art Portfolio <span style="font-size:30px;">&#187;</span></a>
 				</div>
 			</div>
 		</div>
-		<div id="navbar-wrapper" style="position: absolute; height:150px; width:50%; top:0; right:0; overflow:hidden;">
-			<div id="navbar-open" style="position:absolute; top:0; right:0; width:70px; margin:40px;">
+		<div id="navbar-wrapper">
+			<div id="navbar-open">
 				<svg id="hamburger" class="visible" viewBox="0 0 22 20" width="100%" height="100%">
 					<polygon points="0,1 22,1 22,4 0,4" style="fill:#CDCBAA;" />
 					<polygon points="0,8 22,8 22,11 0,11" style="fill:#CDCBAA;" />
 					<polygon points="0,15 22,15 22,18 0,18" style="fill:#CDCBAA;" />
 				</svg>
 			</div>
-			<div id="navbar-pullout" class="hidden" style="height:100%; width:100%;">
-				<div id="navbar-background" style="position:absolute; width:100%; height:100%; top:0; right:0; ">
+			<div id="navbar-pullout" class="hidden">
+				<div id="navbar-background">
 					<svg viewBox="0 0 10 10" width="100%" height="100%" preserveAspectRatio="none">
-						
 						<filter id="dropshadowless" height="130%">
 						  <feGaussianBlur in="SourceAlpha" stdDeviation="0.15"/> <!-- stdDeviation is how much to blur -->
 						  <feOffset dx="0.15" dy="0.15" result="offsetblur"/> <!-- how much to offset -->
@@ -137,15 +133,16 @@
 							<feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
 						  </feMerge>
 						</filter>
+						
 						<polygon points="0,0 10,0 10,6.5 2,5.3" style="fill:#42345F;filter:url(#dropshadowless);" />
 					</svg>
 				</div>
 				<div id="navbar-contents" style="width:0%;">
-					<div id="navbar" class="navbar-div" style="width:33%; transform: scale(3);">
+					<div id="navbar" class="navbar-div">
 					  <nav class="navbar">
-						<div class="navbar-collapse" id="navbarSupportedContent">
+						<div id="navbarSupportedContent" class="navbar-collapse">
 						  <ul class="navbar-nav mr-auto">
-							<li class="nav-item" style="border-style: solid; border-color: gray; border-width: 0px 0px 1px 0px;">
+							<li class="nav-item">
 							  <a onclick="closeNav();" class="nav-link" href="#">
 								<div style="width:23px; float:right; margin:-2px -2px 2px 0px;">
 									<svg viewBox="0 0 22 20" width="100%" height="100%">
@@ -159,16 +156,16 @@
 							  <a class="nav-link" href="#">HOME
 							  <span class="sr-only">(current)</span></a>
 							</li>
-							<li class="nav-item" style="border-style: solid; border-color: gray; border-width: 0px 0px 1px 0px; margin-left:10px;">
+							<li class="nav-item" style="margin-left:10px;">
 							  <a class="nav-link" href="resumem.htm">RESUME</a>
 							</li>
-							<li class="nav-item" style="border-style: solid; border-color: gray; border-width: 0px 0px 1px 0px; margin-left:15px;">
+							<li class="nav-item" style="margin-left:15px;">
 							  <a class="nav-link" href="codem.htm">CODE</a>
 							</li>
-							<li class="nav-item" style="border-style: solid; border-color: gray; border-width: 0px 0px 1px 0px; margin-left:20px;">
+							<li class="nav-item" style="margin-left:20px;">
 							  <a class="nav-link" href="artm.htm">ART</a>
 							</li>
-							<li class="nav-item" style="border-style: solid; border-color: gray; border-width: 0px 0px 1px 0px; margin-left:25px;">
+							<li class="nav-item" style="margin-left:25px;">
 							  <a class="nav-link" href="contactm.htm">CONTACT</a>
 							</li>
 						  </ul>
@@ -178,77 +175,35 @@
 				</div>
 			</div>
 		</div>
-		<style>
-		.hidden {
-			-webkit-transform: translateX(100%);
-		    -moz-transition: translateX(100%);
-		    -o-transition: translateX(100%);
-			transform: translateX(100%);
-			transition: transform 200ms ease-in;
-			will-change: transform;
-		}
-		.show {
-			-webkit-transform: none;
-		    -moz-transition: none;
-		    -o-transition: none;
-			transform: none;
-			transition: transform 200ms ease-out;
-			will-change: transform;
-		}
-		.transparent {
-			opacity:0;
-		}
-		.visible {
-			-webkit-transform: opacity 0.3s linear;
-		    -moz-transition: opacity 0.3s linear;
-		    -o-transition: opacity 0.3s linear;
-			transition: opacity 0.3s linear;
-			will-change: opacity;
-		}
-		</style>
+		
+		<!-- navbar scripts -->
+		<script type="text/javascript" src="js/navbarm.js"></script>
+		
+		<!-- scripts for looping focus -->
 		<script>
-		$("#navbar-open").click(function() {
-			$("#navbar-wrapper").css("height", "1500px");
-			$('#hamburger').addClass('transparent');
-			setTimeout(function() {
-				$('#navbar-pullout').addClass('show');
-			}, 100);
-			
-		});
-		
-		function closeNav() {
-			$('#navbar-pullout').removeClass('show');
-			setTimeout(function() {
-				$('#hamburger').removeClass('transparent');
-			}, 200);
-			setTimeout(function() {
-				$("#navbar-wrapper").css("height", "150px");
-			}, 300);
-		}
-		
-		$(document).ready(function() {		 
-			setInterval(loop, 21000);
-			loop();
-		});
-		var dim = '0.6'
-		var lit = '1'
-		var loop = function() { 
-			$("#resume").animate({opacity:lit},300);
-			$("#code").animate({opacity:dim},300);
-			$("#art").animate({opacity:dim},300);
-			
-			setTimeout(function() {
-				$("#resume").animate({opacity:dim},300);
-				$("#code").animate({opacity:lit},300);
-				$("#art").animate({opacity:dim},300);
-			}, 7000);
-			
-			setTimeout(function() {
-				$("#resume").animate({opacity:dim},300);
+			$(document).ready(function() {		 
+				setInterval(loop, 21000);
+				loop();
+			});
+			var dim = '0.6'
+			var lit = '1'
+			var loop = function() { 
+				$("#resume").animate({opacity:lit},300);
 				$("#code").animate({opacity:dim},300);
-				$("#art").animate({opacity:lit},300);
-			}, 14000);
-		}
+				$("#art").animate({opacity:dim},300);
+				
+				setTimeout(function() {
+					$("#resume").animate({opacity:dim},300);
+					$("#code").animate({opacity:lit},300);
+					$("#art").animate({opacity:dim},300);
+				}, 7000);
+				
+				setTimeout(function() {
+					$("#resume").animate({opacity:dim},300);
+					$("#code").animate({opacity:dim},300);
+					$("#art").animate({opacity:lit},300);
+				}, 14000);
+			}
 		</script>
   </body>
 </html>

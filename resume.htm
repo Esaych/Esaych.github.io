@@ -27,42 +27,7 @@
 	<link rel="stylesheet" href="open-iconic/font/css/open-iconic-bootstrap.min.css">
   
 	<!-- resizing scripts ensure perfect screen rendor-->
-	<script>
-		
-		var resizeToFit = function() {
-			var w = $(this).width(); //this = window
-			var h = $(this).height(); //this = window
-			var new_w = w/1300;
-			var new_h = h/650;
-			var new_scale = "scale(" + new_w + ")";
-			
-			if (new_w > new_h)
-				new_scale = "scale(" + new_h + ")";
-			
-			$("#wrapper").css("transform", new_scale);
-			$("#navbar").css("transform", new_scale);
-			$("#content").css("transform", new_scale);
-			
-		}
-		
-		var resizeResumeToFit = function() {
-			var w = $(this).width(); //this = window
-			var h = $(this).height(); //this = window
-			
-			var new_h = h/w*1300;
-			if (new_h < 685) {
-				new_h = 685;
-			}
-			var new_h_val = new_h + "px";
-			$("#content").css("height", new_h_val);
-		}
-	
-		$(window).on('resize', function() {
-			resizeToFit();
-			resizeResumeToFit();
-		});
-		
-	</script>
+	<script type="text/javascript" src="js/resize.js"></script>
 	
   </head>
   <body class="background">
@@ -148,7 +113,7 @@
 				resizeToFit();
 				resizeResumeToFit();
 			</script>
-			<iframe style="border:none; overflow:overlay;" src="resume_doc.htm" height="100%" width="800"></iframe>
+			<iframe id="resume-frame" style="border:none; overflow:overlay;" src="resume_doc.htm" height="100%" width="800"></iframe>
 			
 		</div>
 	</div>
