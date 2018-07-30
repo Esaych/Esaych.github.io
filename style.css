@@ -20,6 +20,7 @@
 	font-family: 'Roboto Condensed'; 
 	font-weight: bolder; 
 	font-size: 32px;
+	cursor:pointer;
 }
 .title {
 	padding:15px; 

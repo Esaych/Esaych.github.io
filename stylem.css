@@ -5,6 +5,7 @@
 	position:absolute; 
 	top:0; 
 	padding:10px 30px;
+	cursor:pointer;
 }
 .name {
 	font-family: 'Roboto Condensed'; font-weight: bolder; font-size: 55px;
