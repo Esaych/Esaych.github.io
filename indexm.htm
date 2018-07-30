@@ -178,20 +178,20 @@
 		$("#navbar-open").click(function() {
 			$("#hamburger").fadeOut(200, function() {
 				$("#navbar-pullout").css("display", "");
-				$("#navbar-pullout").animate({width:'50%'},300,"linear");
+				$("#navbar-pullout").animate({width:'50%'},300);
 			});
 			
 		});
 		
 		function closeNav() {
-			$("#navbar-pullout").animate({width:'0%'},300,"linear", function() {
+			$("#navbar-pullout").animate({width:'0%'},300, function() {
 				$("#navbar-pullout").css("display", "none");
 				$("#hamburger").fadeIn(200);
 			});
 		}
 		$(document).ready(function() {		 
-			setInterval(loop, 21000);
-			loop();
+			//setInterval(loop, 21000);
+			//loop();
 		});
 		var dim = '0.6'
 		var lit = '1'
