@@ -108,3 +108,27 @@ li.active {
 	transition: opacity 0.3s linear;
 	will-change: opacity;
 }
+
+.header {
+	font-size:25pt;
+	padding:20px;
+	color:white;
+}
+.bspText {
+	color:white !important;
+	background: none !important;
+	font-size:13pt !important;
+}
+.bspImgWrapper {
+	box-shadow: 10px 10px 20px #242D3A;
+}
+.modal-content {
+	transform: scale(1.7);
+    transform-origin: top;
+    margin-top: 25%;
+}
+@media (min-width: 768px) {	
+	.container {
+		max-width: 950px !important;
+	}
+}
