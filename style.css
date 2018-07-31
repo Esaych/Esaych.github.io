@@ -114,6 +114,19 @@ td:first-child {
 .link {
     color:#67A1C1;
 }
+.code-img {
+	width:170px;
+	margin: 20px;
+	box-shadow: 5px 5px 10px #242D3A;
+}
+.code-date {
+	float: right; 
+	height: 0; 
+	font-size: 8pt; 
+	margin-top:-10px; 
+	margin-right:-29px; 
+	font-style: italic;
+}
 
 /* scrollbars */
 ::-webkit-scrollbar {
