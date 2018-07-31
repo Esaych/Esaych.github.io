@@ -30,16 +30,7 @@
 	
 	<link href="bootstrap-photo-gallery/jquery.bsPhotoGallery-min.css" rel="stylesheet">
     <script src="bootstrap-photo-gallery/jquery.bsPhotoGallery-min.js"></script>	
-    <script>
-      $(document).ready(function(){
-        $('ul.first').bsPhotoGallery({
-          "classes" : "col-xl-3 col-lg-2 col-md-4 col-sm-4",
-          "hasModal" : true,
-          "shortText" : true  
-        });
-      });
-    </script>
-	
+    
   </head>
   <body class="body">
 	
@@ -71,8 +62,14 @@
 		</div>
 		<div style="width:100%">
 			<div id="art-pane" class="container" style=""></div>
-			<script>
-				$("#art-pane").load("art_portfolio.htm");
+			<script>				
+				$("#art-pane").load("art_portfolio.htm", function() {						
+					$('ul.first').bsPhotoGallery({
+					  "classes" : "col-xl-3 col-lg-2 col-md-4 col-sm-4",
+					  "hasModal" : true,
+					  "shortText" : false  
+					});
+				});
 			</script>
 		</div>
 		<!--
