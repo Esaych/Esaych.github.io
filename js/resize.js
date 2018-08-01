@@ -49,7 +49,7 @@ var resizeToFit = function() {
 		}
 	}
 	
-	if (w <= 1024 && w/h < 1) {
+	if (w/h < 1) {
 		var newloc = location.href.replace(".htm", "m.htm");
 		if (newloc === location.href) 
 			location.href = 'indexm.htm';
