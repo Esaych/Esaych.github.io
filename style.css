@@ -115,7 +115,7 @@ td:first-child {
     color:#67A1C1;
 }
 .code-img {
-	width:130px;
+	width:200px;
 	margin: 10px;
 	box-shadow: 5px 5px 10px #242D3A;
 }
@@ -123,7 +123,7 @@ td:first-child {
 	float: right; 
 	height: 0; 
 	font-size: 8pt; 
-	margin-top:-10px; 
+	margin-top:-25px; 
 	margin-right:-29px; 
 	font-style: italic;
 }
