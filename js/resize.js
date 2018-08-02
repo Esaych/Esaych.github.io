@@ -49,6 +49,15 @@ var resizeToFit = function() {
 		}
 	}
 	
+	//code only code
+	if ($("#code").length) {
+		if (w < 1300) {
+			$("#content").css("transform-origin", "top left");
+		} else {
+			$("#content").css("transform-origin", "top center");
+		}
+	}
+	
 	if (w/h < 1) {
 		var newloc = location.href.replace(".htm", "m.htm");
 		if (newloc === location.href) 

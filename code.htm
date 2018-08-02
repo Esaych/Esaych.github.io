@@ -28,38 +28,7 @@
 	
   
 	<!-- resizing scripts ensure perfect screen rendor-->
-	<script>
-		
-		var resizeToFit = function() {
-			var w = $(this).width(); //this = window
-			var h = $(this).height(); //this = window
-			var new_w = w/1300;
-			var new_h = h/650;
-			
-			var new_use = new_w;
-			if (new_w > new_h)
-				new_use = new_h;
-			
-			if (new_use > 1.2)
-				new_use = 1.2;
-			
-			if (new_use < 0.5)
-				new_use = 0.5;
-				
-			var new_scale = "scale(" + new_use + ")";
-			
-			$("#wrapper").css("transform", new_scale);
-			$("#navbar").css("transform", new_scale);
-			$("#content").css("transform", new_scale);
-			
-			
-		}
-	
-		$(window).on('resize', function() {
-			resizeToFit()
-		});
-		
-	</script>
+	<script type="text/javascript" src="js/resize.js"></script>
 	
   </head>
   <body class="background">
@@ -137,155 +106,15 @@
 		</div>
 		
 	</div>
-	<div id="content-wrapper" class="content-body" style="top:0px; width:75%;">
+	<div id="content-wrapper" class="content-body" style="top:0px;">
 		<!-- main content contains right elements elements -->
-		<div id="content" class="main-content" style="width:100%; position: relative; padding-top: 150px; transform-origin: top center; color:white;" >
-			<script>
-				resizeToFit();
+		<div id="content" class="main-content code-wrapper" style="width:900px;">
+			<div id="code-pane" style="overflow-y:scroll; height:600px;"></div>
+			<script>				
+				$("#code-pane").load("code_portfolio.htm", function() {						
+					resizeToFit();
+				});
 			</script>
-			<div style="overflow-y:scroll; height:600px;">
-				<table id="code" style="width:700px;">
-					<tr>
-						<td colspan="2" style="width:100%; border-bottom: 2px solid; text-align:left;">
-							<h5>Code Collections</h5>
-						</td>	
-					</tr>
-					<tr>
-						<td><img class="code-img" src="images/github.png" /></td>
-						<td>
-						<h5>GitHub</h5>
-							View my public repositories for hobby projects and code experiments.
-							<br />
-							<a class="link" target="_blank"href="https://github.com/Esaych"><span class="oi oi-link-intact"></span> github.com/Esaych </a>
-						</td>	
-					</tr>
-					<tr>
-						<td><img class="code-img" src="images/devpost.png" /></td>
-						<td>
-						<h5>DevPost</h5>
-							View my hackathon submissions.
-							<br />
-							<a class="link" target="_blank"href="https://devpost.com/Esaych"><span class="oi oi-link-intact"></span> devpost.com/Esaych </a>
-						</td>	
-					</tr>
-					<tr>
-						<td><img class="code-img" src="images/epaga.png" /></td>
-						<td>
-						<h5>E-PAGA Inc.</h5>
-							Visit the company I developed for as a software engineering consultant.
-							<br />
-							<a class="link" target="_blank"href="https://e-paga.com"><span class="oi oi-link-intact"></span> e-paga.com</a>
-						</td>	
-					</tr>
-					
-					
-					<tr>
-						<td colspan="2" style="width:100%; border-bottom: 2px solid; text-align:left;">
-							<h5>Projects</h5>
-						</td>	
-					</tr>
-					<tr>
-						<td><img class="code-img" src="images/nfacr.png" /></td>
-						<td>
-							<div class="code-date">E-PAGA Inc. - 2017-2018</div>
-							<h5>Curriculum Data Visualizer</h5>
-							Database design. Parsing and data manipulation.
-							<br />
-							<span class="oi oi-briefcase"></span> Contract for <i>Nation Fire Association</i>
-						</td>	
-					</tr>
-					<tr>
-						<td><img class="code-img" src="images/psg.png" /></td>
-						<td>
-							<div class="code-date">E-PAGA Inc. - 2017-2018</div>
-							<h5>Drug Equivalences Database Database</h5>
-							Full stack development. Web parsing, database design, MVC backend implementation.
-							<br />
-							<span class="oi oi-briefcase"></span> Contract for <i>US Food and Drug Administration</i>
-						</td>	
-					</tr>
-					<tr>
-						<td><img class="code-img" src="images/esaybot.jpg" /></td>
-						<td>
-							<div class="code-date">Honors College - 2014-2015</div>
-							<h5>Facebook Messenger Chat Bot</h5>
-							A homework assistant chat bot with natural language processing capabilities.
-							<br />
-							<a class="link" target="_blank"href="https://github.com/Esaych/EsayBot"><span class="oi oi-link-intact"></span> Github Repository</a>
-							<br />
-							<a class="link" target="_blank"href="https://facebook.com/esaybot"><span class="oi oi-link-intact"></span> Facebook Page</a>
-						</td>	
-					</tr>
-					<tr>
-						<td><img class="code-img" src="images/bloxio.png" /></td>
-						<td>
-							<div class="code-date">Hackathon - 2014-2015</div>
-							<h5>Javascript Programming</h5>
-							Client / server live map I/O game. Fight/defend against NPC monsters in real time with other users on shared map.
-							<br />
-							<a class="link" target="_blank"href="https://github.com/Esaych/Hoops"><span class="oi oi-link-intact"></span> Github Repository</a>
-							<br />
-							<a class="link" target="_blank"href="https://play.google.com/store/apps/details?id=com.esaych.hoops"><span class="oi oi-link-intact"></span> Google Play Store</a>
-							<br />
-							<a class="link" target="_blank"href="writeups/hoops.pdf"><span class="oi oi-link-intact"></span> Comprehensive Project Writeup</a>
-						</td>	
-					</tr>
-					<tr>
-						<td><img class="code-img" src="images/hoops.png" /></td>
-						<td>
-							<div class="code-date">Hobby - 2014-2015</div>
-							<h5>Android Java Programming</h5>
-							A video game I solo developed, drew, and composed music.
-							<br />
-							<a class="link" target="_blank"href="https://github.com/Esaych/Hoops"><span class="oi oi-link-intact"></span> Github Repository</a>
-							<br />
-							<a class="link" target="_blank"href="https://play.google.com/store/apps/details?id=com.esaych.hoops"><span class="oi oi-link-intact"></span> Google Play Store</a>
-							<br />
-							<a class="link" target="_blank"href="writeups/hoops.pdf"><span class="oi oi-link-intact"></span> Comprehensive Project Writeup</a>
-						</td>	
-					</tr>
-					<tr>
-						<td><img class="code-img" src="images/edline.png" /></td>
-						<td>
-							<div class="code-date">Hobby - 2015-2016</div>
-							<h5>Java Library Development</h5>
-							An experimental Java API that parses a gradebook webpage.
-							<br />
-							<a class="link" target="_blank"href="https://github.com/Esaych/edline-api"><span class="oi oi-link-intact"></span> Github Repository</a>
-							<br />
-							<a class="link" target="_blank"href="writeups/edline.pdf"><span class="oi oi-link-intact"></span> Comprehensive Project Writeup</a>
-						</td>	
-					</tr>
-					<tr>
-						<td><img class="code-img" src="images/calc.png" /></td>
-						<td>
-							<div class="code-date">Hobby - 2014-2015</div>
-							<h5>Android XML Programming</h5>
-							Simple app reads user input and queries an existing site for textbook answers and explanations.
-							<br />
-							<a class="link" target="_blank"href="https://github.com/09wakharet/CalcChat"><span class="oi oi-link-intact"></span> Github Repository</a>
-							<br />
-							<a class="link" target="_blank"href="https://www.amazon.com/Snow-Day-Inc-Calc/dp/B00V2OTOUK"><span class="oi oi-link-intact"></span> Amazon App Store</a>
-							<br />
-							<a class="link" target="_blank"href="writeups/calcchat.pdf"><span class="oi oi-link-intact"></span> Comprehensive Project Writeup</a>
-						</td>	
-					</tr>
-					<tr>
-						<td><img class="code-img" src="images/minecraft.jpg" /></td>
-						<td>
-							<div class="code-date">Hobby - 2012-2014</div>
-							<h5>Web/Java Minecraft Development</h5>
-							Owned, developed plugins, and managed Minecraft Server small business
-							<br />
-							<a class="link" target="_blank"href="https://github.com/Esaych/DDCustomPlugin"><span class="oi oi-link-intact"></span> Github Repository</a>
-							<br />
-							<a class="link" target="_blank"href="https://web.archive.org/web/20140103193247/http://diamonddominion.net/"><span class="oi oi-link-intact"></span> Archived Website</a>
-							<br />
-							<a class="link" target="_blank"href="writeups/diamonddominion.pdf"><span class="oi oi-link-intact"></span> Comprehensive Project Writeup</a>
-						</td>	
-					</tr>
-				</table>
-			</div>
 		</div>
 	</div>
   </body>

@@ -60,18 +60,10 @@
 				</div>
 			</div>
 		</div>
-		<div style="width:100%">
-			<div id="art-pane" class="container" style=""></div>
-			<script>				
-				$("#art-pane").load("art_portfolio.htm", function() {						
-					$('ul.first').bsPhotoGallery({
-					  "classes" : "col-xl-3 col-lg-2 col-md-4 col-sm-4",
-					  "hasModal" : true,
-					  "shortText" : false  
-					});
-				});
-			</script>
-		</div>
+		<div id="code-pane" style="width:100%; padding:60px;"></div>
+		<script>				
+			$("#code-pane").load("code_portfolio.htm");
+		</script>
 		<div id="navbar-wrapper">
 			<div id="navbar-open">
 				<svg id="hamburger" class="visible" viewBox="0 0 22 20" width="100%" height="100%">
@@ -119,12 +111,12 @@
 							<li class="nav-item" style="margin-left:10px;">
 							  <a class="nav-link" href="resumem.htm">RESUME</a>
 							</li>
-							<li class="nav-item" style="margin-left:15px;">
-							  <a class="nav-link" href="codem.htm">CODE</a>
-							</li>
-							<li class="nav-item active" style="margin-left:20px;">
-							  <a class="nav-link" href="#">ART
+							<li class="nav-item active" style="margin-left:15px;">
+							  <a class="nav-link" href="#">CODE
 							  <span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item" style="margin-left:20px;">
+							  <a class="nav-link" href="art.htm">ART</a>
 							</li>
 							<li class="nav-item" style="margin-left:25px;">
 							  <a class="nav-link" href="contactm.htm">CONTACT</a>
