@@ -126,7 +126,7 @@ li.active {
 	font-size:13pt !important;
 }
 .bspImgWrapper {
-	box-shadow: 10px 10px 20px #242D3A;
+	box-shadow: 5px 5px 20px #AAAAAA;
 }
 .modal-content {
 	transform: scale(1.7);
