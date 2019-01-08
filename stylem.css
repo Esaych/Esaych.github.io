@@ -118,10 +118,10 @@ li.active {
 .header {
 	font-size:25pt;
 	padding:20px;
-	color:white;
+	color:#333;
 }
 .bspText {
-	color:white !important;
+	color:#333 !important;
 	background: none !important;
 	font-size:13pt !important;
 }
@@ -136,7 +136,7 @@ li.active {
 .code-img {
 	width:200px;
 	margin: 80px 0px;
-	box-shadow: 5px 5px 10px #242D3A;
+	box-shadow: 5px 5px 20px #AAAAAA;
 }
 .code-date {
 	float: right; 

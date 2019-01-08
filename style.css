@@ -93,10 +93,10 @@ li.active {
 .header {
 	font-size:15pt;
 	padding:20px;
-	color:white;
+	color:#333;
 }
 .bspText {
-	color:white !important;
+	color:#333 !important;
 	background: none !important;
 }
 .bspImgWrapper {
@@ -118,7 +118,7 @@ td:first-child {
 .code-img {
 	width:200px;
 	margin: 10px;
-	box-shadow: 5px 5px 10px #242D3A;
+	box-shadow: 5px 5px 20px #AAAAAA;
 }
 .code-date {
 	float: right; 
