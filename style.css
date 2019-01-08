@@ -1,5 +1,5 @@
 .background {
-	background-color:#323F51; 
+	background-color:#E0E2E3; 
 	overflow: hidden;
 }
 .sidebar {
@@ -21,13 +21,14 @@
 	font-weight: bolder; 
 	font-size: 32px;
 	cursor:pointer;
+	color: #FFF;
 }
 .title {
 	padding:15px; 
 	padding-top:5px; 
 	font-family: 'Roboto Condensed'; 
 	font-size: 17px; 
-	color: #777;
+	color: #DDD;
 }
 .roboto {
 	font-family: 'Roboto'; 
@@ -46,12 +47,12 @@
 	width:310px;
 }
 .nav-link {
-	color: #FFF;
+	color: #777;
 	font-family: 'Roboto Condensed';
 	font-weight: bold;
 }
 li.active {
-	border-bottom: 2px solid white;
+	border-bottom: 2px solid #999;
 }
 .content-body {
 	margin:0px;
@@ -102,7 +103,7 @@ li.active {
 	box-shadow: 5px 5px 10px #242D3A;
 }
 td {
-	color:#CCCCCC;
+	color:#333;
 	text-align: left; 
 	padding: 5px 30px;
 }

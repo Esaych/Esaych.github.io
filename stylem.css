@@ -1,5 +1,5 @@
 .body {
-	background-color:#323F51;
+	background-color:#E0E2E3;
 }
 .brand {
 	position:absolute; 
@@ -11,11 +11,12 @@
 	font-family: 'Roboto Condensed'; 
 	font-weight: bolder; 
 	font-size: 55px;
+	color: #FFF;
 }
 .title {
 	font-family: 'Roboto Condensed'; 
 	font-size: 33px; 
-	color: #777;
+	color: #DDD;
 }
 .tight {
 	margin-top:-10px;
@@ -29,18 +30,18 @@
 	padding:20px; width:40%; display:inline-block;
 }
 .overview-icon>img {
-	width:100%; box-shadow: 20px 20px 40px;
+	width:100%; box-shadow: 5px 5px 20px;
 }
 .overview-content {
-	padding:70px 30px 30px 90px; width:60%; display:inline-block; float:right; color:white;
+	padding:70px 30px 30px 90px; width:60%; display:inline-block; float:right; color:#333;
 }
 .overview-content>div>a {
-	color:#67A1C1; font-style: italic; 
+	color:#4781A1; font-style: italic; 
 }
 
 
 td {
-	color:#CCCCCC;
+	color:#333;
 	text-align: left; 
 	padding: 5px 30px;
 	font-size:1.8rem;
@@ -51,7 +52,7 @@ td:first-child {
 	vertical-align: text-top;	
 }
 .link {
-    color:#67A1C1;
+    color:#4781A1;
 }
 
 

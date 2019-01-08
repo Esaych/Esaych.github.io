@@ -68,8 +68,8 @@
 		<div>
 			<svg viewBox="0 0 32 150" width="100%" height="100%">
 				<filter id="dropshadow" height="130%">
-				  <feGaussianBlur in="SourceAlpha" stdDeviation="0.5"/> <!-- stdDeviation is how much to blur -->
-				  <feOffset dx="1" dy="0" result="offsetblur"/> <!-- how much to offset -->
+				  <feGaussianBlur in="SourceAlpha" stdDeviation="0.2"/> <!-- stdDeviation is how much to blur -->
+				  <feOffset dx=".4" dy="0" result="offsetblur"/> <!-- how much to offset -->
 				  <feComponentTransfer>
 					<feFuncA type="linear" slope="0.3"/> <!-- slope is the opacity of the shadow -->
 				  </feComponentTransfer>
@@ -79,8 +79,8 @@
 				  </feMerge>
 				</filter>
 				
-				<polygon points="0,0 30,0 0,150" style="fill:#42345F; filter:url(#dropshadow);" />
-				<polygon points="0,0 30,0 28.4,8 0,10" style="fill:#CDCBAA;" />
+				<polygon points="0,0 30,0 0,150" style="fill:#27548E; filter:url(#dropshadow);" />
+				<polygon points="0,0 30,0 28.4,8 0,10" style="fill:#293748;" />
 			</svg>
 		</div>
 		
