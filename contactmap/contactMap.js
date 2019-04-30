@@ -1,14 +1,12 @@
+var ids = ["name","label","email","work tel", "home tel", "mobile tel", "web", "im", "fax", "pager", "video", "organization"]
 function addUser(){
   var fields = [];
-  if (document.getElementById('name').value != ""){
-    fields.push({key: "name", value: document.getElementById('name').value});
+  for (var i = 0; i < ids.length; i++) {
+    if (document.getElementById(ids[i]).value != ""){
+      fields.push({key: ids[i], value: document.getElementById(ids[i]).value});
+    }
   }
-  if (document.getElementById('email').value != ""){
-    fields.push({key: "email", value: document.getElementById('email').value});
-  }
-  if (document.getElementById('mobile tel').value != ""){
-    fields.push({key: "mobile tel", value: document.getElementById('mobile tel').value});
-  }
+  
   addToChart(fields)
 }
 
