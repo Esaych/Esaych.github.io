@@ -1,4 +1,4 @@
-var ids = ["name","label","email","work tel", "home tel", "mobile tel", "web", "im", "fax", "pager", "video", "organization", "title"]
+var ids = ["group","name","label","email","work tel", "home tel", "mobile tel", "web", "im", "fax", "pager", "video", "organization", "title", "work addr", "home addr", "notes"]
 function addUser(){
   var fields = [];
   for (var i = 0; i < ids.length; i++) {
