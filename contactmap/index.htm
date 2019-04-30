@@ -9,30 +9,31 @@
     <meta name="generator" content="Jekyll v3.8.5">
     <title>Contact Map</title>
 
-    <!-- Bootstrap core CSS --> 
+    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
+    <script src="contactMap.js"></script>
+
 
     <style>
       .main {
         padding:10px;
       }
       .form-control {
-            
+
         height: 30px;
       }
       .form-inline label {
-          
+
         font-size: 10pt;
         margin-left: -10px;
       }
     </style>
   </head>
   <body>
-    
+
 
   <div class="main">
         <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
@@ -43,7 +44,7 @@
                 </li>
             </ul>
         </nav>
-        
+
     <div class="container-fluid" style="padding-top: 30px;">
         <div class="row">
           <nav class="col-md-3 d-none d-md-block bg-light sidebar">
@@ -55,6 +56,8 @@
                   </a>
                 </li>
               </ul>
+
+              <button type="button" id="add" onclick="addUser()">add</button>
 
               <h6>
                 <span>Organize</span>
@@ -69,7 +72,7 @@
                 </select>
               </div>
               <hr />
-              
+
               <h6>
                 <span>Person Info</span>
                 </h6>
@@ -80,58 +83,58 @@
               </div>
               <div class="form-inline">
                 <label for="exampleFormControlInput1" class="col-lg-3">Label</label>
-                <input type="text" class="form-control col-lg-9" id="name" placeholder="">
+                <input type="text" class="form-control col-lg-9" id="label" placeholder="">
               </div>
               <div class="form-inline">
                 <label for="exampleFormControlInput1" class="col-lg-3">Email</label>
-                <input type="text" class="form-control col-lg-9" id="name" placeholder="">
+                <input type="text" class="form-control col-lg-9" id="email" placeholder="">
               </div>
               <div class="form-inline">
                 <label for="exampleFormControlInput1" class="col-lg-3">Work Tel</label>
-                <input type="text" class="form-control col-lg-9" id="name" placeholder="">
+                <input type="text" class="form-control col-lg-9" id="work tel" placeholder="">
               </div>
               <div class="form-inline">
                 <label for="exampleFormControlInput1" class="col-lg-3">Home Tel</label>
-                <input type="text" class="form-control col-lg-9" id="name" placeholder="">
+                <input type="text" class="form-control col-lg-9" id="home tel" placeholder="">
               </div>
               <div class="form-inline">
                 <label for="exampleFormControlInput1" class="col-lg-3">Mobile Tel</label>
-                <input type="text" class="form-control col-lg-9" id="name" placeholder="">
+                <input type="text" class="form-control col-lg-9" id="mobile tel" placeholder="">
               </div>
               <div class="form-inline">
                 <label for="exampleFormControlInput1" class="col-lg-3">Web</label>
-                <input type="text" class="form-control col-lg-9" id="name" placeholder="">
+                <input type="text" class="form-control col-lg-9" id="web" placeholder="">
               </div>
               <div class="form-inline">
                 <label for="exampleFormControlInput1" class="col-lg-3">IM</label>
-                <input type="text" class="form-control col-lg-9" id="name" placeholder="">
+                <input type="text" class="form-control col-lg-9" id="im" placeholder="">
               </div>
               <div class="form-inline">
                 <label for="exampleFormControlInput1" class="col-lg-3">Fax</label>
-                <input type="text" class="form-control col-lg-9" id="name" placeholder="">
+                <input type="text" class="form-control col-lg-9" id="fax" placeholder="">
               </div>
               <div class="form-inline">
                 <label for="exampleFormControlInput1" class="col-lg-3">Pager</label>
-                <input type="text" class="form-control col-lg-9" id="name" placeholder="">
+                <input type="text" class="form-control col-lg-9" id="pager" placeholder="">
               </div>
-              
+
                 <div class="form-inline">
                 <label for="exampleFormControlInput1" class="col-lg-3">Video</label>
-                <input type="text" class="form-control col-lg-9" id="name" placeholder="">
+                <input type="text" class="form-control col-lg-9" id="video" placeholder="">
                 </div>
-                
+
               <div class="form-inline">
                     <label for="exampleFormControlInput1" class="col-lg-3">Organization</label>
-                    <input type="text" class="form-control col-lg-9" id="name" placeholder="">
+                    <input type="text" class="form-control col-lg-9" id="organization" placeholder="">
                   </div>
-                  
+
               <div class="form-inline">
                     <label for="exampleFormControlInput1" class="col-lg-3">Title</label>
                     <input type="text" class="form-control col-lg-9" id="name" placeholder="">
                   </div>
                   <div class="form-inline">
                         <label for="exampleFormControlSelect1" class="col-lg-3">Work Address</label>
-                        <select class="form-control col-lg-9" id="exampleFormControlSelect1">
+                        <select class="form-control col-lg-9" id="work addr">
                           <option>1</option>
                           <option>2</option>
                           <option>3</option>
@@ -139,10 +142,10 @@
                           <option>5</option>
                         </select>
                       </div>
-                      
+
                   <div class="form-inline">
                         <label for="exampleFormControlSelect1" class="col-lg-3">Home Address</label>
-                        <select class="form-control col-lg-9" id="exampleFormControlSelect1">
+                        <select class="form-control col-lg-9" id="home addr">
                           <option>1</option>
                           <option>2</option>
                           <option>3</option>
@@ -150,10 +153,10 @@
                           <option>5</option>
                         </select>
                       </div>
-                      
+
                   <div class="form-inline">
                         <label for="exampleFormControlSelect1" class="col-lg-3">Notes</label>
-                        <select class="form-control col-lg-9" id="exampleFormControlSelect1">
+                        <select class="form-control col-lg-9" id="notes">
                           <option>1</option>
                           <option>2</option>
                           <option>3</option>
@@ -161,10 +164,10 @@
                           <option>5</option>
                         </select>
                       </div>
-      
+
             </div>
           </nav>
-      
+
           <main role="main" class="col-md-8 ml-sm-auto col-lg-9 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
               <h1 class="h2">Visualization</h1>
@@ -175,8 +178,8 @@
                 </div>
               </div>
             </div>
-      
-            <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+
+            <canvas class="my-4 w-100" id="myChart" width="900" height="500"></canvas>
           </main>
         </div>
       </div>
