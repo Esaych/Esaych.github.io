@@ -2,11 +2,13 @@ var ids = ["name","label","email","work tel", "home tel", "mobile tel", "web", "
 function addUser(){
   var fields = [];
   for (var i = 0; i < ids.length; i++) {
-    if (document.getElementById(ids[i]).value != ""){
-      fields.push({key: ids[i], value: document.getElementById(ids[i]).value});
+    var curr = document.getElementById(ids[i])
+    if (curr.value != ""){
+      fields.push({key: ids[i], value: curr.value});
+      curr.value = ""
     }
   }
-  
+
   addToChart(fields)
 }
 
