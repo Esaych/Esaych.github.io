@@ -1,0 +1,35 @@
+<html>
+
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<textarea id="in" rows="40" cols="40"></textarea>
+	<textarea id="out" rows="40" cols="40"></textarea>
+	<script>
+		$('#in').bind('input propertychange', function() {
+
+		var raw = $("#in").val();
+		
+		var lastLine = "";
+		var lastLastLine = "";
+		
+		var data = [];
+		
+		var lines = raw.split("\n");
+		
+		for (var i = 0; i < lines.length; i++) {
+			if (lastLine === "Friends" && lastLastLine === "Friend") {
+				data.push(lines[i]);
+				
+			}
+			lastLastLine = lastLine;
+			lastLine = lines[i];
+		}
+		
+		  $("#out").val(JSON.stringify(data, null, 2));
+	});
+	</script>
+</body>
+</html>
