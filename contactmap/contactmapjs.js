@@ -12,13 +12,15 @@ var slider;
 var slider2;
 var search;
 
+var vert;
+
 function preload() {
   friendsLines = loadStrings('friends.txt');
   groupsLines = loadStrings('groups.txt');
 }
 
 function setup() {
-  createCanvas(900, 500);
+  createCanvas(1000, 650);
   background(100);
   fill(255);
   noStroke();
@@ -28,6 +30,8 @@ function setup() {
   let curTimestamp = 0;
   let min_time = 2000000000;
   let max_time = 0;
+  
+  vert = createVector(0, 1);
   
   for (let i = 0; i < friendsLines.length; i++) {
     let line = friendsLines[i];
@@ -56,7 +60,7 @@ function setup() {
   slider2.style('width', '300px');
   
   search = createInput();
-  search.position(60, 10);
+  search.position(110, 10);
   
   let curGroup = new Group("init");
   for (let i = 0; i < groupsLines.length; i++) {
@@ -98,7 +102,6 @@ function timeConverter(UNIX_timestamp){
 function draw() {
   background(255);
   
-  
   let min_time = slider.value();
   let max_time = slider2.value();
   if (min_time > max_time) {
@@ -107,6 +110,7 @@ function draw() {
     max_time = holder;
   }
   
+  text("Search:", 60, 25);
   text(timeConverter(min_time), width-310, 65);
   textAlign(RIGHT);
   text(timeConverter(max_time), width-10, 65);
@@ -273,44 +277,34 @@ class Contact {
     var num = members.indexOf(this);
     var total = members.length;
     
-    var angle = num*TWO_PI/total;
+    var angle = map(num, 0, total, 0, TWO_PI);
     
-    let dirVec = createVector(this.loyalty.pos.x, this.loyalty.pos.y, this.pos.x, this.pos.y);
-    let vert = createVector(this.loyalty.pos.x, this.loyalty.pos.y, this.loyalty.pos.x, this.loyalty.pos.y + this.loyalty.ring*this.level);
+    let dirVec = origin.copy().sub(this.pos).normalize();
     let angl = vert.angleBetween(dirVec);
     
-    let quadrant = 0;
-    // 4 | 1
-    // 3 | 2
-    if (this.pos.x < this.loyalty.pos.x) {
-      if (this.pos.y < this.loyalty.pos.y) {
-        quadrant = 4;
-      } else {
-        quadrant = 3;
-      }
-    } else {
-      if (this.pos.y < this.loyalty.pos.y) {
-        quadrant = 1;
-      } else {
-        quadrant = 2;
-      }
+    let side = 0;
+    // 0 | 1
+    if (this.pos.x > this.loyalty.pos.x) {
+      side = 1;
     }
-    let upperRange = 0.11;
-    if (quadrant == 1) {
-      angl = map(angl, 0, upperRange, 0, PI/2);
-    } else if (quadrant == 2) {
-      angl = map(angl, upperRange, 0, PI/2, PI);
-    } else if (quadrant == 3) {
-      angl = map(angl, 0, upperRange, PI, 3*PI/2);
-    } else {
-      angl = map(angl, upperRange, 0, 3*PI/2, TWO_PI);
+    if (side == 0) {
+      angl = map(angl, 0, PI, TWO_PI, PI);
+    } 
+    
+    let anglOff = angl-angle;
+    if (anglOff > PI) {
+      anglOff -= TWO_PI;
     }
     
-    //if (angl > 0) {
-      this.vel = origin.copy().sub(this.pos).normalize().rotate(HALF_PI);
-    //}
-    
-    //console.log(.indexOf(this));
+    if (abs(anglOff) > (PI/(6*this.level))) {
+      this.vel = dirVec.rotate(HALF_PI).mult(2);
+    } else {
+      if (anglOff > PI/16) {
+        this.vel = dirVec.rotate(HALF_PI).mult(0.25);
+      } else if (anglOff < -PI/16) {
+        this.vel = dirVec.rotate(-HALF_PI).mult(0.5);
+      }
+    }
   }
   
 }
@@ -343,8 +337,8 @@ class Group {
   }
   
   defineRingOrder() {
-    for (let i = 0; i < friendsList.length; i++) {
-      let c = friendsList[i];
+    for (let i = 0; i < this.groupMembers.length; i++) {
+      let c = this.groupMembers[i];
       this.ringMembers[c.level].push(c);
     }
   }
@@ -365,21 +359,18 @@ class Group {
     for (let i = 0; i < friendGroups.length; i++) {
       let g = friendGroups[i];
       if (this.pos.copy().dist(g.pos) < this.ring*8) {
-        this.pos.add(this.pos.copy().sub(g.pos).normalize().mult(random(0.3,0.5)));
+        this.pos.add(this.pos.copy().sub(g.pos).normalize().mult(random(1,2)));
       }
-      if (this.pos.x > width-this.ring*3) {
-        this.pos.x = width-this.ring*3;
+      if (this.pos.x > width-this.ring*3-10) {
+        this.pos.x = width-this.ring*3-10;
       }
-      if (this.pos.x < this.ring*6) {
-        this.pos.x = this.ring*6;
+      if (this.pos.x < this.ring*6+10) {
+        this.pos.x = this.ring*6+10;
       }
-      if (this.pos.y > height-this.ring*3) {
-        this.pos.y = height-this.ring*3;
+      if (this.pos.y > height-this.ring*3-10) {
+        this.pos.y = height-this.ring*3-10;
       }
-      if (this.pos.y < this.ring*3) {
-        this.pos.y = this.ring*3;
-      }
-      if (this.pos.x > width/2 && this.pos.y < this.ring*3+70) {
+      if (this.pos.y < this.ring*3+70) {
         this.pos.y = this.ring*3+70;
       }
     }
