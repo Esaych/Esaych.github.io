@@ -7,15 +7,21 @@
 	<textarea id="groups" rows="40" cols="40">Paste Groups Here</textarea>
 
 <button type="button" name="button" onclick="load()">Load Visualization</button>
+<button type="button" name="button" onclick="loadDefault()">Load Default Dataset</button>
 
 <script type="text/javascript">
 	function load(){
+		localStorage["default"] = false
 		var a = document.getElementById("friends").value
 		localStorage["friends"] = a;
 
 		var b = document.getElementById("groups").value
 		localStorage["groups"] = b;
 
+		window.location.href = "./index.htm";
+	}
+	function loadDefault(){
+		localStorage["default"] = true
 		window.location.href = "./index.htm";
 	}
 </script>

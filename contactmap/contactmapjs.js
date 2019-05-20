@@ -15,9 +15,14 @@ var search;
 var vert;
 
 function preload() {
-  friendsLines = localStorage["friends"].split(/\r?\n/);//loadStrings('friends.txt');
-  groupsLines = localStorage["groups"].split(/\r?\n/)//loadStrings('groups.txt');
-  console.log(friendsLines);
+  if(localStorage["default"]){
+    friendsLines = loadStrings('friends.txt');
+    groupsLines = loadStrings('groups.txt');
+  }else{
+    friendsLines = localStorage["friends"].split(/\r?\n/);//loadStrings('friends.txt');
+    groupsLines = localStorage["groups"].split(/\r?\n/)//loadStrings('groups.txt');
+    console.log(friendsLines);
+  }
 }
 
 function setup() {
