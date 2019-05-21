@@ -5,8 +5,8 @@
 
 </head>
 <body>
-	<textarea id="in" rows="40" cols="40"></textarea>
-	<textarea id="out" rows="40" cols="40"></textarea>
+	<textarea id="in" rows="40" cols="40">Paste from Show All Friends here</textarea>
+	<textarea id="out" rows="40" cols="40">Output</textarea>
 	<script>
 		$('#in').bind('input propertychange', function() {
 
@@ -15,20 +15,21 @@
 		var lastLine = "";
 		var lastLastLine = "";
 		
-		var data = [];
+		var data = "";
 		
 		var lines = raw.split("\n");
 		
 		for (var i = 0; i < lines.length; i++) {
-			if (lastLine === "Friends" && lastLastLine === "Friend") {
-				data.push(lines[i]);
-				
+			if (lastLine === "Account Settings") {
+				data += "group:" + lines[i];
+			} else if (lastLine === "Friends" && lastLastLine === "Friend") {
+				data += "\n" + lines[i];
 			}
 			lastLastLine = lastLine;
 			lastLine = lines[i];
 		}
 		
-		  $("#out").val(JSON.stringify(data, null, 2));
+		  $("#out").val(data);
 	});
 	</script>
 </body>
