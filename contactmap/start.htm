@@ -1,13 +1,20 @@
 <html>
 <head>
-<title>Contact Map start page</title>
+	<title>Contact Map start page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
 </head>
-<body>
-	<textarea id="friends" rows="40" cols="40">Paste Friends Here</textarea>
-	<textarea id="groups" rows="40" cols="40">Paste Groups Here</textarea>
-
-<button type="button" name="button" onclick="load()">Load Visualization</button>
-<button type="button" name="button" onclick="loadDefault()">Load Default Dataset</button>
+<body style="padding:10px;">
+	<h2>Custom Dataset Contact Map Start Page</h2>
+	<p>To create your own dataset, use the instructions and tools in <a href="./parser.htm">this parser</a>.</p> 
+	<textarea id="friends" rows="20" cols="40">Paste Friends (friends.txt) Here</textarea>
+	<textarea id="groups" rows="20" cols="40">Paste Groups (groups.txt) Here</textarea>
+    <br />
+	<button type="button" name="button" onclick="load()">Load Visualization with Pasted Dataset</button>
+	<button type="button" name="button" onclick="loadDefault()">Load Default Dataset</button>
 
 <script type="text/javascript">
 	function load(){

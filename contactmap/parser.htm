@@ -1,36 +1,77 @@
 <html>
 
 <head>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
 
 </head>
-<body>
-	<textarea id="in" rows="40" cols="40">Paste from Show All Friends here</textarea>
-	<textarea id="out" rows="40" cols="40">Output</textarea>
+<body style="padding:10px">
+	<h2>Parsing Screen</h2>
+	<p>Download your Facebook friends data as JSON file by following <a href="https://www.facebook.com/help/212802592074644?helpref=faq_content">this tutorial.</a> Save results as friends.txt</p>
+	<p>To create groups, follow directions exactly: <p>
+	<ol style="font-size: 10pt">
+		<li>Open a group on Facebook</li>
+		<li>Select "Members" on the left</li>
+		<li>Select "Show All Friends"</li>
+		<li>Scroll down until all friends have loaded for the group</li>
+		<li>Press CTRL+A and select the ENTIRE page. (CMD+A for Mac)</li>
+		<li>Press CTRL+C and copy the ENTIRE page. (CMD+C for Mac)</li>
+		<li>Paste the entire page into the groups parser on this page.</li>
+		<li>Concatenate all group outputs together into a single text file and save as groups.txt</li>
+	</ol>
+	<p>When your data is parsed, enter it at the <a href="./start.htm">visualization start page</a>.</p>
+	
+	<textarea id="in2" rows="20" cols="40">Paste friends.json here from Facebook export.</textarea>
+	<textarea id="out2" rows="20" cols="40">Output</textarea>
+	
+	<textarea id="in" rows="20" cols="40">Paste from Show All Friends here.</textarea>
+	<textarea id="out" rows="20" cols="40">Output</textarea>
 	<script>
 		$('#in').bind('input propertychange', function() {
 
-		var raw = $("#in").val();
-		
-		var lastLine = "";
-		var lastLastLine = "";
-		
-		var data = "";
-		
-		var lines = raw.split("\n");
-		
-		for (var i = 0; i < lines.length; i++) {
-			if (lastLine === "Account Settings") {
-				data += "group:" + lines[i];
-			} else if (lastLine === "Friends" && lastLastLine === "Friend") {
-				data += "\n" + lines[i];
+			var raw = $("#in").val();
+			
+			var lastLine = "";
+			var lastLastLine = "";
+			
+			var data = "";
+			
+			var lines = raw.split("\n");
+			
+			for (var i = 0; i < lines.length; i++) {
+				if (lastLine === "Account Settings") {
+					data += "group:" + lines[i];
+				} else if (lastLine === "Friends" && lastLastLine === "Friend") {
+					data += "\n" + lines[i];
+				}
+				lastLastLine = lastLine;
+				lastLine = lines[i];
 			}
-			lastLastLine = lastLine;
-			lastLine = lines[i];
-		}
+			
+			  $("#out").val(data);
+		});
 		
-		  $("#out").val(data);
-	});
+		$('#in2').bind('input propertychange', function() {
+
+			var raw = $("#in2").val();
+			
+			var data = "";
+			
+			var lines = raw.split("\n");
+			
+			for (var i = 0; i < lines.length; i++) {
+				if (lines[i].includes("\"name\":")) {
+					data += lines[i].replace(/"/g, "").replace("      ", "").replace(": ", ":").replace(",", "") + "\n";
+				} else if (lines[i].includes("\"timestamp\":")) {
+					data += lines[i].replace(/"/g, "").replace("      ", "").replace(": ", ":").replace(",", "") + "\n";
+				}
+			}
+			
+			  $("#out2").val(data);
+		});
 	</script>
 </body>
 </html>
