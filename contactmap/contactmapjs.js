@@ -8,6 +8,8 @@ let noAssociationCount = 0;
 
 let center = null;
 
+let textList = [];
+
 var slider;
 var slider2;
 var search;
@@ -15,30 +17,29 @@ var search;
 var vert;
 
 function preload() {
-  if(localStorage["default"]){
+  if (localStorage["default"] || !('friends' in localStorage) || !('groups' in localStorage)) {
     friendsLines = loadStrings('friends.txt');
     groupsLines = loadStrings('groups.txt');
-  }else{
-    friendsLines = localStorage["friends"].split(/\r?\n/);//loadStrings('friends.txt');
-    groupsLines = localStorage["groups"].split(/\r?\n/)//loadStrings('groups.txt');
-    console.log(friendsLines);
+  } else {
+    friendsLines = localStorage["friends"].split(/\r?\n/);
+    groupsLines = localStorage["groups"].split(/\r?\n/);
   }
 }
 
 function setup() {
-  createCanvas(1000, 650);
+  createCanvas(windowWidth, windowHeight);
   background(100);
   fill(255);
   noStroke();
   colorMode(HSB, 255);
-
+  
   let curFriend = "";
   let curTimestamp = 0;
   let min_time = 2000000000;
   let max_time = 0;
-
+  
   vert = createVector(0, 1);
-
+  
   for (let i = 0; i < friendsLines.length; i++) {
     let line = friendsLines[i];
     if (line.startsWith("name:")) {
@@ -56,18 +57,18 @@ function setup() {
       friendsList.push(newFriend);
     }
   }
-
-
+  
+  
   slider = createSlider(min_time, max_time, min_time);
   slider.position(width-310, 10);
   slider.style('width', '300px');
   slider2 = createSlider(min_time, max_time, max_time);
   slider2.position(width-310, 30);
   slider2.style('width', '300px');
-
+  
   search = createInput();
   search.position(110, 10);
-
+  
   let curGroup = new Group("init");
   for (let i = 0; i < groupsLines.length; i++) {
     let line = groupsLines[i];
@@ -79,20 +80,20 @@ function setup() {
       curGroup.addMemberByName(line);
     }
   }
-
+  
   for (let i = 0; i < friendsList.length; i++) {
     let c = friendsList[i];
     c.setLevel();
     c.pickLoyalty();
   }
-
+  
   for (let i = 0; i < friendGroups.length; i++) {
     let g = friendGroups[i];
     g.defineRingOrder();
   }
-
+  
   center = createVector(width/2, height/2);
-
+  
   ellipseMode(CENTER);
 }
 
@@ -107,7 +108,7 @@ function timeConverter(UNIX_timestamp){
 
 function draw() {
   background(255);
-
+  
   let min_time = slider.value();
   let max_time = slider2.value();
   if (min_time > max_time) {
@@ -115,14 +116,15 @@ function draw() {
     min_time = max_time;
     max_time = holder;
   }
-
+  
   text("Search:", 60, 25);
+  text("Added Friend:", width-390, 65);
   text(timeConverter(min_time), width-310, 65);
   textAlign(RIGHT);
   text(timeConverter(max_time), width-10, 65);
   textAlign(LEFT);
-
-
+  
+  
   for (let i = 0; i < friendsList.length; i++) {
     let c = friendsList[i];
     if (c.timestamp < min_time || c.timestamp > max_time) {
@@ -136,32 +138,40 @@ function draw() {
     g.update();
     g.render();
   }
+
+  fill('red');
+  stroke('white');
+  for (let i = 0; i < textList.length; i++) {
+    text(textList[i][0], textList[i][1], textList[i][2]);
+  }
+  textList = [];
+  fill('black');
 }
 
 
 class Contact {
-
-
+  
+  
   constructor(in_name, in_timestamp) {
     this.r = 7;
     this.maxvel = 30;
-
+    
     this.name = in_name;
     this.timestamp = in_timestamp;
     this.pos = createVector(int(random(this.r,width-this.r)), int(random(this.r,height-this.r)));
-
+    
     this.vel = createVector(0,0);
     this.acc = createVector(0,0);
-
+    
     this.loyalty = null;
     this.level = 3;
     this.associations = [];
-
+    
     this.between = false;
-
+    
     this.goto = null;
   }
-
+  
   setLevel() {
     this.level = this.associations.length;
     if (this.level > 3) {
@@ -169,7 +179,7 @@ class Contact {
     }
     this.pickLoyalty();
   }
-
+  
   pickLoyalty() {
     if (this.associations.length == 1) {
       this.loyalty = this.associations[0];
@@ -178,22 +188,19 @@ class Contact {
       this.loyalty = this.associations[indx];
     }
   }
-
+  
   associate(sender) {
     this.associations.push(sender);
   }
-
+  
   render() {
     fill(255);
     circle(this.pos.x, this.pos.y, this.r);
     let mousePos = createVector(mouseX, mouseY);
     if (mousePos.dist(this.pos) < this.r) {
-      fill('red');
-      text(this.name, this.pos.x, this.pos.y);
-    }
-    if (search.value() != "" && this.name.startsWith(search.value())) {
-      fill('red');
-      text(this.name, this.pos.x, this.pos.y);
+      textList.push([this.name, this.pos.x, this.pos.y]);
+    } else if (search.value() != "" && this.name.startsWith(search.value())) {
+      textList.push([this.name, this.pos.x, this.pos.y]);
     }
     if (this.between) {
       stroke(0);
@@ -205,7 +212,7 @@ class Contact {
     }
     stroke(0);
   }
-
+  
   update() {
     this.acc.normalize().mult(0.5);
     this.vel.add(this.acc);
@@ -214,9 +221,9 @@ class Contact {
     }
     this.vel.mult(0.9);
     this.pos.add(this.vel);
-
+    
     if (this.associations.length > 0) {
-      if (random(0,100000) < 1) {
+      if (random(0,5000) < 1) {
         this.pickLoyalty();
       }
     } else {
@@ -232,7 +239,7 @@ class Contact {
         this.pos.add(vec);
       }
     }
-
+    
     if (this.loyalty != null) {
       if (this.pos.dist(this.loyalty.pos) < this.loyalty.ring * this.level * 1.2) {
         this.between = false;
@@ -240,7 +247,7 @@ class Contact {
         this.between = true;
       }
     }
-
+    
     if (this.pos.x < 0) {
       this.pos.x = 0;
     }
@@ -254,7 +261,7 @@ class Contact {
       this.pos.y = height;
     }
   }
-
+  
   ping(sender) {
     if (sender === this.loyalty) {
       let dist = this.pos.dist(sender.pos);
@@ -267,27 +274,27 @@ class Contact {
       }
     }
   }
-
-  attract(to) {
+  
+  attract(to) { 
       this.acc.add(to.copy().sub(this.pos).normalize().div(to.dist(this.pos)).mult(5));
   }
-
+  
   repel(from) {
     this.acc.add(this.pos.copy().sub(from).normalize().div(from.dist(this.pos)).mult(5));
   }
-
+  
   orbit(origin) {
     this.acc.mult(0);
-
+    
     var members = this.loyalty.ringMembers[this.level];
     var num = members.indexOf(this);
     var total = members.length;
-
+    
     var angle = map(num, 0, total, 0, TWO_PI);
-
+    
     let dirVec = origin.copy().sub(this.pos).normalize();
     let angl = vert.angleBetween(dirVec);
-
+    
     let side = 0;
     // 0 | 1
     if (this.pos.x > this.loyalty.pos.x) {
@@ -295,13 +302,13 @@ class Contact {
     }
     if (side == 0) {
       angl = map(angl, 0, PI, TWO_PI, PI);
-    }
-
+    } 
+    
     let anglOff = angl-angle;
     if (anglOff > PI) {
       anglOff -= TWO_PI;
     }
-
+    
     if (abs(anglOff) > (PI/(6*this.level))) {
       this.vel = dirVec.rotate(HALF_PI).mult(2);
     } else {
@@ -312,27 +319,27 @@ class Contact {
       }
     }
   }
-
+  
 }
 
 class Group {
-
+  
   constructor(in_name) {
     this.r = 2;
     this.ring = 25;
     this.groupMembers = [];
     this.ringMembers = [[], [], [], []];
-
+    
     this.name = in_name;
     this.pos = createVector(int(width/2 + random(this.ring*-3, this.ring*3)), int(height/2 + random(this.ring*-3,this.ring*3)));
-
+    
     this.vert = createVector(1,1,1,0);
-
+    
     if (in_name == "subtle asian traits") {
       this.pos = createVector(width/2, height/2);
     }
   }
-
+  
   addMemberByName(memberName) {
     for (let i = 0; i < friendsList.length; i++) {
       if (friendsList[i].name == memberName) {
@@ -341,14 +348,14 @@ class Group {
       }
     }
   }
-
+  
   defineRingOrder() {
     for (let i = 0; i < this.groupMembers.length; i++) {
       let c = this.groupMembers[i];
       this.ringMembers[c.level].push(c);
     }
   }
-
+  
   render() {
     fill('red');
     circle(this.pos.x, this.pos.y, this.r);
@@ -360,7 +367,7 @@ class Group {
     fill('black');
     text(this.name, this.pos.x, this.pos.y);
   }
-
+  
   update() {
     for (let i = 0; i < friendGroups.length; i++) {
       let g = friendGroups[i];
